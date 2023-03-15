@@ -14,7 +14,7 @@ SECRET_KEY = 'django-insecure-gko#le@t0c(+v!5e^rw)cpf0-0*tm%iq0v88a+1%mhc95!ithe
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["aglo-production.up.railway.app"]
 
 
 
