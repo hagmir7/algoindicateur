@@ -1,0 +1,23 @@
+{% extends 'dash.html' %}
+
+
+{% block content %}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-8 card p-3">
+            <h1 class="my-4">{{ title }}</h1>
+            <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <input class="form-control" value="{{post.title}}" type="text" placeholder="Title" name="title" maxlength="200" required="" id="id_title">
+                    <label for="id_image" class="mt-2"><strong>Image</strong></label>
+                    <input class="form-control" type="file" name="image" accept="image/*" id="id_image">
+                    <a class="mt-2" href="{{post.image.url}}"> Current Image</a>
+                    <textarea class="form-control mt-2" placeholder="Description" name="description" cols="40" rows="5" required="" id="id_description"  spellcheck="false">{{post.description}}</textarea>
+                    <textarea class="form-control mt-2" placeholder="Content" name="body" cols="40" rows="10" required="" id="id_body" spellcheck="false">{{post.body}}</textarea>
+                <button type="submit" class="btn btn-primary w-100 mt-3">Create</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock content %}

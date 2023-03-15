@@ -1,0 +1,18 @@
+{% extends 'blanck.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block content %}
+<div class="container">
+
+    <section class="section error-404 min-vh-100 d-flex flex-column align-items-center justify-content-center">
+      <h1>{% trans "Merci" %}</h1>
+      <h2 class="m-0">{% trans "Nous vous remercions de votre commande" %}</h2> 
+      <p>{% trans "Nous vous contacterons bientôt. Pour plus d'Aloot," %}  <a href="/contact">Contactez-nous</a></p>
+      <a class="btn" href="/products">{% trans "Retour aux produits" %}</a>
+      <img src="{% static "img/hands.png" %}" class="py-5" width="100px" alt="Page Not Found">
+    </section>
+
+  </div>
+
+{% endblock content %}

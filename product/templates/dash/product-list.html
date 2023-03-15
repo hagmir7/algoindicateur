@@ -1,0 +1,53 @@
+{% extends 'dash.html' %}
+{% load static %}
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <div class="card top-selling overflow-auto">
+          <div class="card-body pb-0">
+            <h5 class="card-title">All Products</h5>
+            {% if messages %}
+                {% for message in messages %}
+                <div {% if message.tags %} class="alert alert-{{ message.tags }} p-2" {% endif %}>{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+            <table class="table table-borderless">
+              <thead class="bg-light">
+                <tr>
+                  <th scope="col">Preview</th>
+                  <th scope="col">Product</th>
+                  <th scope="col">Price</th>
+                  <th scope="col">Orders</th>
+                  <th scope="col">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+               {% for product in products %}
+                <tr>
+                  <th scope="row"><a href="{{ product.image.url }}"><img width="50px" src="{{ product.image.url }}" alt=""></a></th>
+                  <td><a href="/product/{{product.id}}" class="text-primary fw-bold">{{product.name}}</a></td>
+                  <td>{{product.price}} MAD</td>
+                  <td class="fw-bold">{{product.product_order.all.count}}</td>
+                  <td>
+                    <a class="btn btn-sm btn-success" href="/product/update/{{product.id}}"><i class="bx bxs-pen"></i></a>
+
+                    <a class="btn btn-sm btn-danger" href="/product/delete/{{product.id}}" onclick="return confirm('Are you sure you want to delete Product')"><i class="bx bxs-trash"></i></a>
+                  </td>
+                </tr>
+
+                {% empty %}
+                <div class="text-cetner">
+                    <h3>No Products</h3>
+                </div>
+                {% endfor %}
+              </tbody>
+            </table>
+    
+          </div>
+    
+        </div>
+      </div>
+</div>
+
+
+{% endblock content %}

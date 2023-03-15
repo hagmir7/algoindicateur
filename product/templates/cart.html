@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block content %}
+<main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section id="breadcrumbs" class="breadcrumbs bg-white">
+        <div class="container">
+            <ol>
+                <li><a href="/">{% trans "Accueil" %}</a></li>
+                <li>{% trans "Panier" %}</li>
+            </ol>
+            <h2>{% trans "Panier" %}</h2>
+        </div>
+    </section><!-- End Breadcrumbs -->
+
+    <section id="pricing" class="pricing section-bg pt-0">
+        <div class="container aos-init aos-animate" data-aos="fade-up">
+            <div class="row d-flex justify-content-around">
+             {% for product in products %}
+             <div id="cart-{{product.id}}" class="col-lg-8 mt-4 mb-3 mt-lg-0 aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">
+                <div class="box shadow-none border featured row">
+                  <div class="col-md-3 p-0">
+                    <img src="{{product.image.url}}" alt="" class="rounded border" width="100%">
+                  </div>
+                  <div class="col-md-9">
+                    <h3 class="p-0 mt-2">{{product.name}}</h3>
+                    <h4><sup>MAD</sup>{{product.price}}</h4>
+                    <button onclick="remove('{{product.id}}')" class="buy-btn d-flex p-2"> <span>{% trans "Supprimer" %}</span></button>
+                  </div>
+                </div>
+              </div>
+              {% empty %}
+              <h3 class="p-0 text-center h1 mt-2">No Products</h3>
+             {% endfor %}
+
+             {% if products %}
+             <div class="col-lg-8 mt-4 mb-3 mt-lg-0 aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">
+              <div class="box shadow-none border featured row">
+                <h2 class="text-center">{% trans "Entrez vos informations" %}</h2>
+                <form method="POST">
+                  {% csrf_token %}
+                  <div class="form-group">
+                      <label for="full_name"><strong>{% trans "Nom et prénom" %}</strong></label>
+                      <input type="text" class="form-control" value="{{user.first_name}} {{user.last_name}}" id="full_name"
+                          name="full_name">
+                  </div>
+                  <div class="form-group">
+                      <label for="email" class="mt-2"><strong>{% trans "E-mail" %}</strong></label>
+                      <input type="email" value="{{user.email}}" class="form-control" id="email" name="email" required>
+                  </div>
+                  <div class="form-group">
+                      <label for="phone" f class="mt-2"><strong>{% trans "Téléphone" %}</strong></label>
+                      <input type="text" class="form-control" id="phone" name="phone" required>
+                  </div>
+                  <div class="form-group">
+                      <label for="payment" class="mt-2"><strong>{% trans "Méthode de payement" %}</strong></label>
+                      <select class="form-control" id="payment" name="payment">
+                          <option value="">Select payement</option>
+                          <option value="Bank RIP">Bank RIP</option>
+                          <option value="Skrill">Skrill</option>
+                          <option value="Western Union">Western Union</option>
+                      </select>
+                  </div>
+                  <button type="submit" class="btn btn-primary mt-3 rounded-pill w-100">{% trans "Envoyer" %}</button>
+              </form>
+              </div>
+      
+            </div>
+          </div>
+             {% endif %}
+        </div>
+    </section>
+
+</main>
+
+
+{% endblock content %}

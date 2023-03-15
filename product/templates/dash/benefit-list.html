@@ -1,0 +1,38 @@
+{% extends 'dash.html' %}
+
+
+{% block content %}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">All Benefits</h5>
+
+              <!-- List group with Advanced Contents -->
+              {% if messages %}
+                {% for message in messages %}
+                <div {% if message.tags %} class="alert alert-{{ message.tags }} p-2" {% endif %}>{{ message }}</div>
+                {% endfor %}
+               {% endif %}
+              <ul class="list-group">
+                {% for benefit in benefits %}
+                <li href="#" class="list-group-item list-group-item-action">
+                    <div class="d-flex w-100 justify-content-between">
+                      <h5 class="mb-1"><strong>{{benefit.title}}</strong></h5>
+                      <small class="text-muted">{{benefit.created}}</small>
+                    </div>
+                    <p class="mb-1">{{benefit.description}}</p>
+                    <a href="/benefit/update/{{benefit.id}}" class="btn btn-success btn-sm">Update</a>
+                    <a onclick="return confirm('Are you sure you want to delete benefit.')" class="btn btn-danger btn-sm" href="/benefit/delete/{{benefit.id}}">Delete</a>
+                </li>
+                {% empty %}
+                <h3 class="text-center">No Benefit</h3>
+                {% endfor %}
+              </ul><!-- End List group Advanced Content -->
+
+            </div>
+          </div>
+    </div>
+</div>
+{% endblock content %}

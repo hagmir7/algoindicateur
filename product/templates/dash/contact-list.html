@@ -1,0 +1,41 @@
+{% extends 'dash.html' %}
+
+
+{% block content %}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="card col-md-10">
+            <div class="card-body">
+              <h5 class="card-title">All Messages</h5>
+
+              <!-- List group with Advanced Contents -->
+              <div class="list-group">
+                {% for contact  in msgs  %}
+                <a href="/contact/{{contact.id}}" class="list-group-item list-group-item-action {% if not contact.is_read %}active{% endif %} border-bottom" aria-current="true">
+                    <div class="d-flex w-100 justify-content-between">
+                      <h5 class="mb-1" dir="auto">{{ contact.full_name }} </h5>
+                      <small>{{ contact.created|timesince }}</small>
+                    </div>
+                    <p dir="auto" class="mb-1">{{ contact.message|truncatechars:100}}</p>
+                  </a>
+                {% empty %}
+                {% endfor %}
+              </div><!-- End List group Advanced Content -->
+
+            </div>
+            <div class="pagination mb-3 d-flex justify-content-center">
+                <span class="step-links">
+                    {% if msgs.has_previous %}
+                        <a class="btn btn-outline-primary rounded-pill" href="?page={{ msgs.previous_page_number }}">Previous</a>
+                    {% endif %}
+            
+                    {% if msgs.has_next %}
+                        <a class="btn btn-outline-primary rounded-pill" href="?page={{ msgs.next_page_number }}">Next</a>
+                    {% endif %}
+                </span>
+            </div>
+          </div>
+    </div>
+</div>
+{% endblock content %}

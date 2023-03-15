@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block content %}
+<main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section id="breadcrumbs" class="breadcrumbs bg-white">
+        <div class="container">
+
+            <ol>
+                <li><a href="/">{% trans "Accueil" %}</a></li>
+                <li>{% trans "Contactez-nous" %}</li>
+            </ol>
+            <h2>{% trans "Contactez-nous" %}</h2>
+
+        </div>
+    </section><!-- End Breadcrumbs -->
+
+    <section class="inner-page section-bg  px-0 py-3">
+        <div class="container">
+            <section id="contact" class="contact p-2">
+                <div class="container aos-init aos-animate" data-aos="fade-up">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8 mt-5 mt-lg-0 d-flex align-items-stretch">
+
+                            <form method="POST" role="form" class="php-email-form">
+                                <!-- Alert -->
+                                {% if messages %}
+                                {% for message in messages %}
+                                <div {% if message.tags %} class="alert alert-{{ message.tags }} p-2" {% endif %}>{{ message }}</div>
+                                {% endfor %}
+                                {% endif %}
+                                {% csrf_token %}
+                                <div class="row">
+                                    <div class="form-group col-md-6">
+                                        <label for="name">{% trans "Votre nom" %}</label>
+                                        <input type="text" name="full_name"
+                                            value="{{user.first_name}} {{user.last_name}}" class="form-control"
+                                            id="name" required="">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="email">{% trans "Votre e-mail" %}</label>
+                                        <input type="email" class="form-control" value="{{user.email}}" name="email"
+                                            id="email" required="">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="name">{% trans "Message" %}</label>
+                                    <textarea class="form-control" name="message" rows="6" required=""></textarea>
+                                </div>
+                                <div class="text-center"><button type="submit">{% trans "Envoyer le message" %}</button>
+                                </div>
+                            </form>
+                        </div>
+
+                    </div>
+
+                </div>
+            </section>
+        </div>
+    </section>
+
+</main>
+
+{% endblock content %}

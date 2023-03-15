@@ -1,0 +1,209 @@
+
+{% extends 'base.html' %}
+{% load i18n %}
+{% load static %}
+{% block content %}
+
+<style>
+    .hero-content{
+        background-image: url('/static/img/trading.jpg');
+        background-position: right;
+        background-size: cover;
+    }
+</style>
+
+    <!-- ======= Hero Section ======= -->
+
+    <section class="p-0 m-0 hero-content">
+        <section id="hero" class="d-flex align-items-center">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class=" d-flex flex-column justify-content-center pt-4 pt-lg-0" data-aos="fade-up"
+                        data-aos-delay="200">
+                        <h1 class="text-center">Ne laissez plus la confusion vous freiner</h1>
+                        <h2 class="text-center">Contactez-nous et accédez à des graphiques avancés en temps réel pour
+                            tous les marchés, sur tous vos appareils.</h2>
+                        <div class="justify-content-center d-grid d-sm-grid d-flex d-md-flex d-xl-flex">
+                            <a href="/contact" class="btn-get-started scrollto">Contactez-nous</a>
+                            <a href="https://www.youtube.com/embed/obk7b23LZDE?controls=0" class="glightbox btn-watch-video">
+                                <i class="bi bi-play-circle"></i></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <main id="main">
+        <!-- ======= Section Main ======= -->
+        <section id="services" class="services section-bg ">
+            <div class="container" data-aos="fade-up">
+                <div class="section-title">
+                    <h2>Automatisez vos idées de trading sans écrire de code.</h2>
+                </div>
+                <div class="row d-flex justify-content-center">
+                    <div class="col-lg-8 order-md-1 order-2 d-flex flex-column">
+                        <div class="content">
+                            <h3>Bienvenue dans le monde de l'investissement automatisé !</h3>
+                            <p class="lh-base h6 mt-3">
+                                Je suis un robot de trading d'arbitrage, conçu pour vous aider à
+                                réaliser des bénéfices en ligne grâce à mes capacités d'analyse de
+                                données en temps réel. Je suis capable de rechercher les échanges
+                                et d'identifier le meilleur ordre pour générer le profit le plus élevé
+                                possible, sans aucune intervention humaine.
+                                <a href="">Read More</a>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 align-items-stretch img">
+                        <img class="rounded border img-fluid animated" src="{% static 'assets/img/9.jpg' %}" alt="">
+                    </div>
+                </div>
+        </section>
+        <!-- LES AVANTAGES -->
+        <section id="faq" class="faq section-bg bg-white">
+            <div class="container" data-aos="fade-up">
+
+                <div class="section-title">
+                    <h2> les avantages du trading boat</h2>
+                </div>
+
+                <div class="faq-list">
+                    <ul>
+
+                        {% for benefit in  benefits %}
+                        <li class="bg-light" data-aos="fade-up" data-aos-delay="100">
+                            <i class="bx bx-help-circle icon-help"></i>
+                            <a data-bs-toggle="collapse" class="collapse" data-bs-target="#faq-list-{{benefit.id}}">
+                                <span>{{benefit.title}}</span>
+                                <i class="bx bx-chevron-down icon-show"></i>
+                                <i class="bx bx-chevron-up icon-close"></i>
+                            </a>
+                            <div id="faq-list-{{benefit.id}}" class="collapse" data-bs-parent=".faq-list">
+                                <p>{{benefit.description}}</p>
+                            </div>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+        <!-- ======= u'est-ce que Algo Indicateur ======= -->
+        <section class="why-us section-bg" id="heor">
+            <div class="container-fluid" data-aos="fade-up">
+                <div class="row">
+                    <div
+                        class="col-lg-7 order-md-1 order-2 d-flex flex-column justify-content-center align-items-stretch ">
+                        <div class="content">
+                            <h3><strong>Qu'est-ce que Algo Indicateur ?</strong></h3>
+                            <p class="lh-lg fw-bolder">
+                                Vous cherchez à maximiser vos chances de succès en trading ?
+                                Découvrez comment notre système simplifié algo indicateur peut
+                                vous aider à prendre des décisions éclairées pour des
+                                transactions rentables en toute tranquillité. Vous devez savoir
+                                qu'avoir un graphique bruyant réduit les chances de succès de
+                                vos transactions jusqu'à 60%.
+                            </p>
+                        </div>
+                    </div>
+                    <!-- 600 x 450 -->
+                    <div class="col-lg-5 align-items-stretch img rounded hero-img aos-init aos-animate"
+                        data-aos="zoom-in" data-aos-delay="200">
+                        <img src="{% static "assets/img/12.png" %}" class="img-fluid animated" alt="">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        
+        <!-- ======= Articles ======= -->
+        <section id="services" class="services bg-white">
+            <div class="container" data-aos="fade-up">
+
+                <div class="section-title">
+                    <h2>Algo indicateur, que peut faire pour vous ?</h2>
+                </div>
+                {% for post in posts %}
+                <div class="row d-flex justify-content-center p-3 rounded {% if forloop.counter|divisibleby:2 %} section-bg {% endif%}">
+                    <div class="col-lg-7 {% if forloop.counter|divisibleby:2 %} order-md-2 {% endif%} d-flex justify-content-center">
+                        <div class="content">
+                            <h3>Ne ressentez-vous pas de la fatigue vis-à-vis des indicateurs
+                                et des outils traditionnels de Metatrader 4?</h3>
+                            <p class="lh-base h6 mt-3">
+                                Il est important de noter que l'utilisation d'un
+                                graphique encombré peut réduire jusqu'à 60% vos
+                                chances de réussite dans vos transactions. Pour
+                                maintenir une rentabilité constante sur les marchés, il
+                                est essentiel d'avoir un système qui vous guide dans
+                                vos décisions d'entrée et de sortie de positions, sans
+                                recourir à des impulsions.
+                            </p>
+                        </div>
+                    </div>
+                    <!-- 1024 x 630 -->
+                    <div class="col-lg-5 mb-3 d-flex align-items-center aos-init aos-animate" data-aos="fade-right"
+                        data-aos-delay="100">
+                        <img src="assets/img/triding-1.png" class="img-fluid rounded" alt="">
+                    </div>
+                </div>
+                {% endfor %}
+        </section>
+        
+
+
+
+
+        <!-- Products -->
+        <section id="pricing" class="pricing section-bg">
+            <div class="container aos-init aos-animate" data-aos="fade-up">
+                <div class="section-title" data-read-aloud-multi-block="true">
+                    <h2>{% trans "Nos tarifs" %}</h2>
+                </div>
+                <div class="row d-flex justify-content-around">
+                    {% for product in products %}
+                    <div class="col-lg-5 mt-4 mt-lg-0 aos-init aos-animate mb-3" data-aos="fade-up" data-aos-delay="200">
+                        <div class="box featured row">
+                            <div class="col-md-6 p-0"><img src="{{product.image.url}}" class="rounded border" width="100%" alt=""></div>
+                            <div class="col-md-6">
+                                <h3><del>{{product.old_price}} MAD</del></h3>
+                                <h4><sup>MAD</sup>{{product.price}}<span>Illimité</span></h4>
+                            </div>
+                            <div class="row pt-0">
+                                <h3 class="p-0 mt-2">{{product.name}}</h3>
+                                <p class="p-0">{{product.description|truncatechars:100}}</p>
+                              <div class="d-flex p-0">
+
+                                {% if user.is_authenticated %}
+                                <a onclick="addToCart(`{{product.id}}`)" href="#!" class="buy-btn py-2 px-4 text-center me-2" id="product-{{product.id}}">
+                                    {% if user in product.cart.all %}
+                                    <i class="bx bx-check"></i>
+                                    {% else %}
+                                    <span>{% trans "Ajouter au panier" %}</span>
+                                    {% endif %}
+                                </a>
+                                {% else %}
+                                <a href="/accounts/login" class="buy-btn py-2 px-4 text-center me-2" id="product-{{product.id}}">
+                                    <span>{% trans "Ajouter au panier" %}</span>
+                                </a>
+                                {% endif %}
+
+                             <a href="/product/{{product.id}}" class="buy-btn py-2 px-4 text-center ms-2" id="1"><span>{% trans "Savoir plus" %}</span></a>
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class="d-flex justify-content-center mt-4">
+                    <a href="/products" class="buy-btn py-2 px-4 text-center" id="1"><span>View More</span></a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+{% endblock content %}

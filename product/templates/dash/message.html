@@ -1,0 +1,30 @@
+{% extends 'dash.html' %}
+
+
+{% block content %}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="card col-md-10">
+            <div class="card-body">
+                <div class="text-center mt-3">
+                    {% if message.user %}
+                    <img src="{{ message.user.profile.avatar.url }}" width="60px" alt="{{message.full_name}}" class="rounded-circle border">
+                     {% else %}   
+                     <img src="/media/user_default.webp" width="60px" alt="{{message.full_name}}" class="rounded-circle border">
+
+                    {% endif %} 
+                    <h5 class="card-title p-1">{{message.full_name}}</h5>
+                    {% if message.user %}
+                    <h6>@{{message.user.username}}</h6>
+                    {% endif %}
+                </div>
+                <pre class="h6" style="white-space: pre-wrap;">{{message.message}}</pre>
+                <hr />
+                <p dir="auto">{{ message.created|timesince }}</p>
+                
+            </div>
+          </div>
+    </div>
+</div>
+{% endblock content %}

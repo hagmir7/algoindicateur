@@ -1,0 +1,50 @@
+{% extends 'dash.html' %}
+
+
+{% block content %}
+
+<div class="row d-flex justify-content-center">
+    <div class="col-md-8 card border p-2 shadow-none">
+        <h1 class="h2">Create Product</h1>
+        {% if messages %}
+            {% for message in messages %}
+            <div {% if message.tags %} class="alert alert-{{ message.tags }} p-2" {% endif %}>{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+        <form method="POST" enctype="multipart/form-data" class="row g-3">
+            {% csrf_token %}
+            <div class="col-md-6">
+                <label for="name" class="form-label">Product Name:</label>
+                <input type="text" value="{{product.name}}" name="name" class="form-control" required>
+            </div>
+
+            <div class="col-md-6">
+                <label for="image" class="form-label">Product Image:</label>
+                <input type="file" name="image" class="form-control" accept="image/*">
+                {% if product.image %}
+                    <a href="{{product.image.url}}">Current Image</a>
+                {% endif %}
+            </div>
+
+            <div class="col-md-6">
+                <label for="price" class="form-label">Price:</label>
+                <input type="number" value="{{product.price}}" name="price" class="form-control" required>
+            </div>
+
+            <div class="col-md-6">
+                <label for="old_price" class="form-label">Old price:</label>
+                <input type="number" value="{{product.old_price}}" name="old_price" class="form-control">
+            </div>
+
+            <div class="col-md-12">
+                <label for="description" class="form-label">Description:</label>
+                <textarea name="description" rows="6" class="form-control" required>{{product.description}}</textarea>
+            </div>
+
+            <div class="col-md-12">
+                <button type="submit" class="btn btn-primary w-100">Create</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock content %}
