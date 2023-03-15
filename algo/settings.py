@@ -16,6 +16,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["aglo-production.up.railway.app"]
 
+CSRF_TRUSTED_ORIGINS = [ "https://aglo-production.up.railway.app"]
+
 
 
 
