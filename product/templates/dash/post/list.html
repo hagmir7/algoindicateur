@@ -13,48 +13,53 @@
                     <!-- Table with stripped rows -->
                     <div class="datatable-wrapper datatable-loading no-footer sortable searchable fixed-columns">
                         <div class="datatable-container">
-                            <table class="table datatable datatable-table">
-                                <thead>
-                                    <tr>
-                                        <th data-sortable="true">
-                                            <a href="#" class="datatable-sorter">#</a>
-                                        </th>
-                                        <th data-sortable="true">
-                                            <a href="#" class="datatable-sorter">Title</a>
-                                        </th>
-                                        <th data-sortable="true">
-                                            <a href="#" class="datatable-sorter">Creator</a>
-                                        </th>
-                                        <th data-sortable="true">
-                                            <a href="#" class="datatable-sorter">Date</a>
-                                        </th>
-                                        <th data-sortable="true">
-                                            <a href="#" class="datatable-sorter">Action</a>
-                                        </th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {% for post in posts %}
-                                    <tr data-index="0">
-                                        <td>{{post.id}}</td>
-                                        <td><a href="/post/{{post.id}}">{{post.title|truncatechars:50}}</a></td>
-                                        <td>{{post.user.first_name}} {{post.user.last_name}}</td>
-                                        <td>{{post.created|date:"F j, Y"}}</td>
-                                        <td>
-                                            <a class="btn btn-sm btn-success" href="/post/update/{{post.id}}">
-                                                <i class="bx bxs-pen"></i>
-                                            </a>
-                                            <a class="btn btn-sm btn-danger" href="/post/delete/{{post.id}}" onclick="return confirm('Are you sure you want to delete Article')">
-                                                <i class="bx bxs-trash"></i>
-                                            </a>
-                                        </td>
-                                    </tr>
-                                    {% empty %}
-                                    <h4 class="text-center"> No Post</h4>
-                                    {% endfor %}
-                                    
-                                </tbody>
-                            </table>
+                           {% if posts %}
+
+                           <table class="table datatable datatable-table">
+                            <thead>
+                                <tr>
+                                    <th data-sortable="true">
+                                        <a href="#" class="datatable-sorter">#</a>
+                                    </th>
+                                    <th data-sortable="true">
+                                        <a href="#" class="datatable-sorter">Title</a>
+                                    </th>
+                                    <th data-sortable="true">
+                                        <a href="#" class="datatable-sorter">Creator</a>
+                                    </th>
+                                    <th data-sortable="true">
+                                        <a href="#" class="datatable-sorter">Date</a>
+                                    </th>
+                                    <th data-sortable="true">
+                                        <a href="#" class="datatable-sorter">Action</a>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for post in posts %}
+                                <tr data-index="0">
+                                    <td>{{post.id}}</td>
+                                    <td><a href="/post/{{post.id}}">{{post.title|truncatechars:50}}</a></td>
+                                    <td>{{post.user.first_name}} {{post.user.last_name}}</td>
+                                    <td>{{post.created|date:"F j, Y"}}</td>
+                                    <td>
+                                        <a class="btn btn-sm btn-success" href="/post/update/{{post.id}}">
+                                            <i class="bx bxs-pen"></i>
+                                        </a>
+                                        <a class="btn btn-sm btn-danger" href="/post/delete/{{post.id}}" onclick="return confirm('Are you sure you want to delete Article')">
+                                            <i class="bx bxs-trash"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                                
+                            </tbody>
+                        </table>
+                           {% else %}
+            
+                           <h4 class="text-center"> No Post</h4>
+
+                           {% endif %}
                             <div class="pagination mb-3 d-flex justify-content-center">
                                 <span class="step-links">
                                     {% if posts.has_previous %}

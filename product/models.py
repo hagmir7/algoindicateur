@@ -17,6 +17,7 @@ class Post(models.Model):
     image = models.ImageField(upload_to='postImage')
     description = models.TextField()
     body = models.TextField()
+    language = models.ForeignKey(Language, on_delete=models.CASCADE, null=True, blank=True)
     created = models.DateTimeField(auto_now_add=True)
 
 
@@ -35,6 +36,7 @@ class Product(models.Model):
     description = models.TextField()
     body = models.TextField()
     date = models.DateTimeField(auto_now=False, auto_now_add=True)
+    language = models.ForeignKey(Language, on_delete=models.CASCADE, null=True, blank=True)
     slug = models.SlugField()
 
     def __str__(self):
@@ -75,6 +77,7 @@ class Benefit(models.Model):
     title = models.CharField(max_length=100)
     description = models.TextField()
     created = models.DateTimeField(auto_now_add=True)
+    language = models.ForeignKey(Language, on_delete=models.CASCADE, null=True, blank=True)
 
 
     def __str__(self):

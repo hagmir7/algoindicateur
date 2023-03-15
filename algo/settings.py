@@ -31,7 +31,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'product',
-    'users'
+    'users',
+    'django_summernote',
 ]
 
 MIDDLEWARE = [
@@ -79,6 +80,15 @@ WSGI_APPLICATION = 'algo.wsgi.application'
 #         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
 # }
+
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
 
 DATABASES = {
     'default': {
@@ -164,3 +174,13 @@ LOGOUT_REDIRECT_URL = '/accounts/login/'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# Summernot Configuration
+SUMMERNOTE_THEME = 'bs4'  # set the Summernote theme
+SUMMERNOTE_CONFIG = {
+    'width': '100%',
+    'height': '400px',
+}  # set the Summernote configuration options
+
+

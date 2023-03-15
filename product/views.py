@@ -12,13 +12,15 @@ now = timezone.now()
 
 
 def home(request):
-    benefits = Benefit.objects.all().order_by('-created')[0:10]
-    posts = Post.objects.all().order_by('-created')[0:10]
-    products = Product.objects.all().order_by('-date')[0:4]
+    benefits = Benefit.objects.filter(language__code=request.LANGUAGE_CODE).order_by('-created')[0:10]
+    posts = Post.objects.filter(language__code=request.LANGUAGE_CODE).order_by('-created')[1:11]
+    products = Product.objects.filter(language__code=request.LANGUAGE_CODE).order_by('-date')[0:4]
+    first = Post.objects.filter(language__code=request.LANGUAGE_CODE)[0:1]
     context = {
         'benefits': benefits,
         'posts': posts,
-        'products': products
+        'products': products,
+        'first': first
     }
     return render(request, 'index.html', context)
 
@@ -305,7 +307,7 @@ def PostUpdate(request, pk):
             post = form.save(commit=False)
             post.save()
             messages.success(request, _("Article a été edit avec succès."))
-            return redirect('post', pk=post.pk)
+            return redirect('/post/list')
     else:
         form = PostForm(instance=post)
     context = {'form': form, 'title': 'Update Article', "post": post}
@@ -324,7 +326,8 @@ def PostDelete(request, pk):
 
 def PostDetail(request, pk):
     post = get_object_or_404(Post, pk=pk)
-    context = {'title': post.title, "post": post}
+    products = Product.objects.filter(language__code=request.LANGUAGE_CODE).order_by('-date')[0:4]
+    context = {'title': post.title, "post": post, 'products': products}
     return render(request, 'post.html', context)
 
 

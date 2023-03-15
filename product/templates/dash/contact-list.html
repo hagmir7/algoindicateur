@@ -1,5 +1,5 @@
 {% extends 'dash.html' %}
-
+{% load i18n %}
 
 {% block content %}
 
@@ -8,7 +8,6 @@
         <div class="card col-md-10">
             <div class="card-body">
               <h5 class="card-title">All Messages</h5>
-
               <!-- List group with Advanced Contents -->
               <div class="list-group">
                 {% for contact  in msgs  %}
@@ -20,6 +19,7 @@
                     <p dir="auto" class="mb-1">{{ contact.message|truncatechars:100}}</p>
                   </a>
                 {% empty %}
+                <h3 class="text-center">{% trans "No Messages" %}</h3>
                 {% endfor %}
               </div><!-- End List group Advanced Content -->
 
@@ -29,7 +29,6 @@
                     {% if msgs.has_previous %}
                         <a class="btn btn-outline-primary rounded-pill" href="?page={{ msgs.previous_page_number }}">Previous</a>
                     {% endif %}
-            
                     {% if msgs.has_next %}
                         <a class="btn btn-outline-primary rounded-pill" href="?page={{ msgs.next_page_number }}">Next</a>
                     {% endif %}

@@ -31,12 +31,12 @@
                         <button type="button" class="btn btn-primary rounded-pill" data-bs-toggle="modal" data-bs-target="#exampleModal">
                             Acheter Maintenant
                         </button>
-                        <p class="lh-base h6 mt-3">{{product.description}}</p>
-                        <div>{{product.body}}</div>
+                        <p class="lh-base h6 mt-3 fw-4" style="white-space: pre-wrap;">{{product.description|safe}}</p>
+                        <div>{{product.body|safe}}</div>
                     </div>
                 </div>
                 <!-- 1024 x 630 -->
-                <div class="col-lg-5 mb-3 d-flex align-items-center aos-init aos-animate" data-aos="fade-right"
+                <div class="col-lg-5 mb-3 d-flex aos-init aos-animate" data-aos="fade-right"
                     data-aos-delay="100">
                     <img src="{{product.image.url}}" class="img-fluid rounded border" alt="{{product.name}}">
                 </div>

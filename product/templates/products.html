@@ -44,7 +44,7 @@
                         </div>
                         <div class="row pt-0">
                             <h3 class="p-0 mt-2">{{product.name}}</h3>
-                            <p class="p-0">{{product.description|truncatechars:100}}</p>
+                            <p class="lh-base h6 fw-4 p-0 m-0" style="white-space: pre-wrap;">{{product.description|safe}}</p>
                           <div class="d-flx row gap-2">
                             {% if user.is_authenticated %}
                             <a onclick="addToCart(`{{product.id}}`)" href="#!" class="buy-btn py-2 px-4 text-center me-2" id="product-{{product.id}}">

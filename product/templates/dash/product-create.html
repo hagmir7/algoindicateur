@@ -2,7 +2,6 @@
 
 
 {% block content %}
-
 <div class="row d-flex justify-content-center">
     <div class="col-md-8 card border p-2 shadow-none">
         <h1 class="h2">Create Product</h1>
@@ -36,9 +35,20 @@
                 <input type="number" value="{{product.old_price}}" name="old_price" class="form-control">
             </div>
 
+            <div class="col-md-6">
+                <label for="old_price" class="form-label">Language:</label>
+                {{form.language}}
+            </div>
+
+
             <div class="col-md-12">
                 <label for="description" class="form-label">Description:</label>
                 <textarea name="description" rows="6" class="form-control" required>{{product.description}}</textarea>
+            </div>
+
+            <div class="col-md-12">
+                <label for="description" class="form-label">Description:</label>
+                {{form.body}}
             </div>
 
             <div class="col-md-12">

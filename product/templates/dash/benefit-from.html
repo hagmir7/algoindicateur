@@ -8,19 +8,25 @@
             <h1 class="h2 mt-2">Create Benefit</h1>
             <div class="card-body py-3">
                 {% if messages %}
-                    {% for message in messages %}
-                    <div {% if message.tags %} class="alert alert-{{ message.tags }} p-2" {% endif %}>{{ message }}</div>
-                    {% endfor %}
-                 {% endif %}
+                {% for message in messages %}
+                <div {% if message.tags %} class="alert alert-{{ message.tags }} p-2" {% endif %}>{{ message }}</div>
+                {% endfor %}
+                {% endif %}
                 <form method="POST">
                     {% csrf_token %}
                     <div class="mb-3">
                         <label for="title" class="form-label"><strong>Title</strong></label>
-                        <input type="text" value="{% if form.title.value %}{{form.title.value}}  {% endif %}" class="form-control" id="title" name="title" required>
+                        <input type="text" value="{% if form.title.value %}{{form.title.value}}  {% endif %}"
+                            class="form-control" id="title" name="title" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="old_price" class="form-label mt-2">Language:</label>
+                        {{form.language}}
                     </div>
                     <div class="mb-3">
                         <label for="description" class="form-label"><strong>Description</strong></label>
-                        <textarea class="form-control" id="description" name="description" rows="3" required>{% if form.description.value %}{{form.description.value}}  {% endif %}</textarea>
+                        <textarea class="form-control" id="description" name="description" rows="3"
+                            required>{% if form.description.value %}{{form.description.value}}  {% endif %}</textarea>
                     </div>
                     <button type="Create" class="btn btn-primary w-100 rounded-pill">Create</button>
                 </form>
