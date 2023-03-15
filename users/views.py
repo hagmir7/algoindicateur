@@ -29,10 +29,8 @@ def login_view(request):
             if authenticate(username=username, password=password):
                 user = authenticate(username=username, password=password)
                 login(request, user)
-                if request.user.superuer:
-                    return redirect('/dash')
-                else:
-                    return redirect('/products')
+
+                return redirect('/products')
 
             else:
                 messages.add_message(request, messages.ERROR, _('Password is incorrect!'))
