@@ -32,9 +32,9 @@ class SignUpForm(forms.ModelForm):
 
 
 class UserCreationForm(forms.ModelForm):
-    username = forms.CharField(label=_('Username'), max_length=30,help_text=_("Username should not contain spaces"),
+    username = forms.CharField(label=_('Username'), max_length=30,help_text=_("Le nom d'utilisateur ne doit pas contenir d'espaces"),
          widget=forms.TextInput(attrs={'class': 'form-control input-size bg-secondary', 'placeholder': _('Username')}))
-    username = forms.CharField(label=_('Username'), max_length=30,help_text=_("Username should not contain spaces"), widget=forms.TextInput(
+    username = forms.CharField(label=_('Username'), max_length=30,help_text=_("Le nom d'utilisateur ne doit pas contenir d'espaces"), widget=forms.TextInput(
         attrs={'class': 'form-control input-size', 'placeholder': _('Username')}))
     email = forms.EmailField(label=_('Email'), widget=forms.EmailInput(
         attrs={'class': 'form-control', 'placeholder': _('Email')}))

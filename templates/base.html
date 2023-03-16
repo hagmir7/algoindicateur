@@ -30,6 +30,18 @@
   <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
 </head>
 
+{% if LANGUAGE_CODE == 'ar' %}
+
+<style>
+    .icon-show,
+    .icon-close {
+        font-size: 24px;
+        position: absolute;
+        left: 0!important;
+        top: 0;
+    }
+</style>
+{% else %}
 <style>
     .faq .faq-list .icon-show,
     .faq .faq-list .icon-close {
@@ -39,6 +51,10 @@
         top: 0;
     }
 </style>
+{% endif %}
+
+
+
 
 <body>
 

@@ -30,5 +30,15 @@ urlpatterns = [
     path('post/<int:pk>', PostDetail),
 
     # 
-    path('thanks', thanks)
+    path('thanks', thanks),
+    path('change/language', change_language, name='lang'),
+
+
+    # Orders
+    path("order/all", OrderList),
+    path("order/confirmed", OrderConfirmed),
+    path("order/canceled", OrderCanceled),
+    path("order/cancel", CancelOrder),
+    path("order/confirm", ConfirmOrder),
+    path("order/new", OrderNew),
 ]

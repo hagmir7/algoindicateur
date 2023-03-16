@@ -8,7 +8,7 @@
     <section class="section row error-404 min-vh-100 d-flex flex-column align-items-center justify-content-center">
             <div class="card col-md-6 p-3 border shadow-sm">
                 <div class="p-2">
-                    <h4 class="modal-title">{% trans 'Sing Up | Log In' %}</h4>
+                    <h4 class="modal-title">{% trans 'Nouveau compte' %}</h4>
                 </div>
                 <div class=" p-2">
                     {% if messages %}
@@ -47,8 +47,8 @@
                                 {{form.password2}}
                             </div>
                             <div class="text-center mb-3">
-                                <button class="btn w-100 mb-2">{% trans 'Sing in' %}</button>
-                                <a href="{% url 'login' %}" class="btn-ag ag-blue mt-3 w-100">{% trans 'I have account' %}?</a>
+                                <button class="btn w-100 mb-2">{% trans "S'identifier" %}</button>
+                                <a href="{% url 'login' %}" class="btn-ag ag-blue mt-3 w-100">{% trans "J'ai un compte" %}?</a>
                             </div>
                         </form>
                     </div>

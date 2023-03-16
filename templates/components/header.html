@@ -20,13 +20,13 @@
                 <li class="dropdown me-2"><a href="#"><span>{% trans "Langue" %}</span> <i class="bi bi-chevron-down"></i></a>
                     <ul>
                         <li>
-                            <a href="{% url 'set_language' %}?language=fr"  id='fr'>
+                            <a href="{% url 'lang' %}?language=fr"  id='fr'>
                                 <img src="{% static 'assets/img/drapo/france.png' %}" width="30px" alt="Français" />
                                 Français
                             </a>
                         </li>
                         <li>
-                            <a href="{% url 'set_language' %}?language=ar" id='ar'>
+                            <a href="{% url 'lang' %}?language=ar" id='ar'>
                                 <img src="{% static 'assets/img/drapo/morocco.png' %}" width="30px"
                                     alt="العربية" />العربية
                             </a>

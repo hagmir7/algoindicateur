@@ -7,8 +7,8 @@
     <section id="breadcrumbs" class="breadcrumbs bg-white">
         <div class="container">
             <ol>
-                <li><a href="/">{% trans "Accueil" %}</a></li>
-                <li>{% trans "Panier" %}</li>
+                <li><a href="/"> {% trans "Accueil" %} </a></li>
+                <li> {% trans "Panier" %} </li>
             </ol>
             <h2>{% trans "Panier" %}</h2>
         </div>
@@ -31,7 +31,7 @@
                 </div>
               </div>
               {% empty %}
-              <h3 class="p-0 text-center h1 mt-2">No Products</h3>
+              <h3 class="p-0 text-center h1 mt-2">{% trans "No Produits" %}</h3>
              {% endfor %}
 
              {% if products %}
@@ -55,7 +55,7 @@
                   </div>
                   <div class="form-group">
                       <label for="payment" class="mt-2"><strong>{% trans "Méthode de payement" %}</strong></label>
-                      <select class="form-control" id="payment" name="payment">
+                      <select class="form-control" id="payment" name="payment" required>
                           <option value="">Select payement</option>
                           <option value="Bank RIP">Bank RIP</option>
                           <option value="Skrill">Skrill</option>

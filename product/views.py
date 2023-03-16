@@ -3,12 +3,32 @@ from django.core.paginator import Paginator
 from . models import *
 from .forms import *
 from django.contrib import messages
-from django.utils.translation import gettext as _
+from django.utils.translation import activate, gettext as _
 from django.utils import timezone
 from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
 
+
 now = timezone.now()
+
+
+
+
+
+def change_language(request):
+    """
+    View function to change the language of the application.
+    """
+    lang_code = request.GET.get('language')
+    # Activate the language specified by lang_code
+    activate(lang_code)
+
+    # Set the language preference in the user's session
+    request.session['LANGUAGE_SESSION_KEY'] = lang_code
+
+    # Redirect the user to the previous page
+    referer = request.META.get('HTTP_REFERER')
+    return redirect(referer)
 
 
 def home(request):
@@ -339,7 +359,70 @@ def OrderList(request):
     page_number = request.GET.get('page')
     orders = paginator.get_page(page_number)
     context = {'orders': orders}
-    return render(request, 'dash/order/list')
+    return render(request, 'dash/order/list.html', context)
+
+
+
+def OrderNew(request):
+    list = Order.objects.filter(confirmed=False, canceled=False).order_by('-created')
+    paginator = Paginator(list, 30) # Show 25 contacts per page.
+
+    page_number = request.GET.get('page')
+    orders = paginator.get_page(page_number)
+    context = {'orders': orders}
+    return render(request, 'dash/order/new.html', context)
+
+
+def OrderConfirmed(request):
+    list = Order.objects.filter(confirmed=True).order_by('-created')
+    paginator = Paginator(list, 30) # Show 25 contacts per page.
+
+    page_number = request.GET.get('page')
+    orders = paginator.get_page(page_number)
+    context = {'orders': orders}
+    return render(request, 'dash/order/confirmed.html', context)
+
+
+def OrderCanceled(request):
+    list = Order.objects.filter(canceled=True).order_by('-created')
+    paginator = Paginator(list, 30) # Show 25 contacts per page.
+
+    page_number = request.GET.get('page')
+    orders = paginator.get_page(page_number)
+    context = {'orders': orders}
+    return render(request, 'dash/order/canceled.html', context)
+
+
+
+def ConfirmOrder(request):
+    if request.user.is_superuser:
+        id = request.GET.get('confirm')
+        order = Order.objects.get(id=id)
+        if order.confirmed:
+            order.confirmed = False
+        else:
+            order.confirmed = True
+        order.save()
+        return JsonResponse({'message': ''})
+    
+
+def CancelOrder(request):
+    if request.user.is_superuser:
+        id = request.GET.get('confirm')
+        order = Order.objects.get(id=id)
+        if order.canceled:
+            order.canceled = False
+        else:
+            order.canceled = True
+        order.save()
+        return JsonResponse({'message': ''})
+        
+
+
+
+
+
+
 
 
 

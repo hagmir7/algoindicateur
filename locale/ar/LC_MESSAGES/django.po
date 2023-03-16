@@ -120,12 +120,17 @@ msgstr ""
 "الفعلي لجميع الأسواق وعلى جميع أجهزتك."
 
 #: .\product\templates\index.html:42
-msgid "Automatisez vos idées de trading sans écrire de code."
-msgstr "قم بأتمتة أفكار التداول الخاصة بك دون كتابة رمز."
+msgid "Automatisez vos idées de trading sans intervention humaine"
+msgstr "قم بأتمتة أفكار التداول الخاصة بك دون تدخل بشري."
 
-#: .\product\templates\index.html:68
-#, fuzzy
-#| msgid "les avantages du trading bot"
+
+msgid "Qu'est-ce que Algo Indicateur?"
+msgstr "السؤال عن مؤشر الجودة؟"
+
+
+msgid "Vous cherchez à maximiser vos chances de succès en trading ? Découvrez comment notre système simplifié algo indicateur peut vous aider à prendre des décisions éclairées pour des transactions rentables en toute tranquillité. Vous devez savoir qu'avoir un graphique bruyant réduit les chances de succès de vos transactions jusqu'à 60% on fait 70%."
+msgstr "هل تتطلع إلى تعظيم فرصك في نجاح التداول؟ اكتشف كيف يمكن أن يساعدك نظام مؤشرات algo المبسط لدينا في اتخاذ قرارات مستنيرة بشأن الصفقات المربحة مع راحة البال. يجب أن تعلم أن وجود مخطط صاخب يقلل من فرص نجاح تداولاتك بنسبة تصل إلى 60٪ أو 70٪."
+
 msgid "les avantages du trading bot"
 msgstr "فوائد روبوتات التداول"
 
@@ -213,7 +218,7 @@ msgstr "هل أنت متأكد أنك تريد حذف المنتج"
 
 #: .\templates\components\header.html:20
 msgid "Langue"
-msgstr "الغة"
+msgstr "اللغة"
 
 #: .\templates\components\header.html:38
 msgid "Connextion"
