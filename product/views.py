@@ -69,7 +69,7 @@ def dashboard(request):
 
 # Product Admin
 def products(request):
-    list = Product.objects.filter(language__code=request.LANGUAGE_CODE).order_by('-date')
+    list = Product.objects.all().order_by('-date')
     paginator = Paginator(list, 25) # Show 25 contacts per page.
 
     page_number = request.GET.get('page')
@@ -229,7 +229,7 @@ def message(request, id):
 
 
 def ourProducts(request):
-    list = Product.objects.all().order_by('-date')
+    list = Product.objects.filter(language__code=request.LANGUAGE_CODE).order_by('-date')
     paginator = Paginator(list, 25) # Show 25 contacts per page.
 
     page_number = request.GET.get('page')
