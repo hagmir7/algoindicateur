@@ -35,7 +35,10 @@ def home(request):
     benefits = Benefit.objects.filter(language__code=request.LANGUAGE_CODE).order_by('-created')[0:10]
     posts = Post.objects.filter(language__code=request.LANGUAGE_CODE, id__gt=2).order_by('-created')[0:11]
     products = Product.objects.filter(language__code=request.LANGUAGE_CODE).order_by('-date')[0:4]
-    first = Post.objects.filter(language__code=request.LANGUAGE_CODE)[0:1]
+    if request.LANGUAGE_CODE == 'ar':
+        first = Post.objects.get(id=1)
+    else:
+        first = Post.objects.filter(id=2)
     context = {
         'benefits': benefits,
         'posts': posts,
