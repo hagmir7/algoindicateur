@@ -22,14 +22,13 @@
                 <div class="container aos-init aos-animate" data-aos="fade-up">
                     <div class="row justify-content-center">
                         <div class="col-lg-7 order-md-1 order-2 d-flex flex-column">
-
                             <div class="align-items-stretch img mb-3">
                               <img class="rounded border" src="{{post.image.url}}" width="100%" alt="">
                             </div>
                             <div class="content">
                               <h1 class="h3" dir="auto">{{post.title}}</h1>
                                 <strong dir="auto" class="w-100 d-inline-block"> {{post.created|date:"F j, Y"}}</strong>
-                              <div dir="auto">{{post.body}}</div>
+                              <div dir="auto">{{post.body|safe}}</div>
                             </div>
                           </div>
                     </div>
