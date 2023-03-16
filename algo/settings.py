@@ -90,16 +90,6 @@ DATABASES = {
 }
 
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': "django.db.backends.postgresql_psycopg2",
-#         'NAME': "railway",
-#         'USER': "postgres",
-#         'PASSWORD': "X58f2hLwxprSL8kVeM5p",
-#         'HOST': "containers-us-west-145.railway.app",
-#         'PORT': "8035",
-#     }
-# }
 
 
 # Password validation
@@ -184,3 +174,15 @@ SUMMERNOTE_CONFIG = {
 }  # set the Summernote configuration options
 
 
+
+if os.getcwd() == '/app':
+    DATABASES = {
+        'default': {
+            'ENGINE': "django.db.backends.postgresql_psycopg2",
+            'NAME': "railway",
+            'USER': "postgres",
+            'PASSWORD': "X58f2hLwxprSL8kVeM5p",
+            'HOST': "containers-us-west-145.railway.app",
+            'PORT': "8035",
+        }
+    }
