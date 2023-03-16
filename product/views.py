@@ -406,7 +406,9 @@ def ConfirmOrder(request):
         else:
             order.confirmed = True
         order.save()
-        return JsonResponse({'message': ''})
+        messages.success(request, 'The order was Confirmed successfully.')
+        referer = request.META.get('HTTP_REFERER')
+        return redirect(referer)
     
 
 def CancelOrder(request):
