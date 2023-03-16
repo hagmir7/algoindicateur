@@ -1,13 +1,13 @@
 {% load static %}
 {% load i18n %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{LANGUAGE_CODE}}" dir="{{dir}}">
 
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>{% trans "Nous vous remercions de votre commande" %}</title>
+  <title>{% if title %} {{title}} {% else %} ALGO INDICATEUR {% endif %}</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 

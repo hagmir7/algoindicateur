@@ -9,7 +9,7 @@
 
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">All Articles</h5>
+                    <h5 class="card-title">Confirmed orders</h5>
                     <!-- Table with stripped rows -->
                     <div class="datatable-wrapper datatable-loading no-footer sortable searchable fixed-columns">
                         <div class="datatable-container">
@@ -23,7 +23,7 @@
                                             <a href="#" class="datatable-sorter">Title</a>
                                         </th>
                                         <th data-sortable="true">
-                                            <a href="#" class="datatable-sorter">Creator</a>
+                                            <a href="#" class="datatable-sorter">Auth</a>
                                         </th>
                                         <th data-sortable="true">
                                             <a href="#" class="datatable-sorter">Date</a>
@@ -35,39 +35,46 @@
                                 </thead>
                                 <tbody>
                                     {% for order in orders %}
+
+
                                     <tr data-index="0">
                                         <td>{{order.id}}</td>
-                                        <td><a href="/order/{{order.id}}">{{order.title|truncatechars:50}}</a></td>
-                                        <td>{{order.user.first_name}} {{order.user.last_name}}</td>
-                                        <td>{{order.created|date:"F j, Y"}}</td>
+                                        <td>{{order.full_name}}</td>
+
+                                        {% if order.user %}
+                                        <td class="text-success">Yes</td>
+                                        {% else %}
+                                        <td class="text-danger">No</td>
+                                        {% endif %}
+
+                                        <td>{{order.created|date:"F j, Y"}}
+
                                         <td>
-                                            <a class="btn btn-sm btn-success" href="/order/update/{{order.id}}">
-                                                <i class="bx bxs-pen"></i>
-                                            </a>
-                                            <a class="btn btn-sm btn-danger" href="/order/delete/{{order.id}}" onclick="return confirm('Are you sure you want to delete Article')">
-                                                <i class="bx bxs-trash"></i>
+                                            <a class="btn btn-sm btn-info text-white" href="/order/{{order.id}}">
+                                                View
                                             </a>
                                         </td>
-                                    </tr>
-                                    {% empty %}
-                                    <h4 class="text-center"> No order</h4>
-                                    {% endfor %}
-                                    
+                                        {% empty %}
+                                        <h4 class="text-center"> No order</h4>
+                                        {% endfor %}
+
                                 </tbody>
                             </table>
                             <div class="pagination mb-3 d-flex justify-content-center">
                                 <span class="step-links">
                                     {% if orders.has_previous %}
-                                        <a class="btn btn-outline-primary rounded-pill" href="?page={{ orders.previous_page_number }}">Previous</a>
+                                    <a class="btn btn-outline-primary rounded-pill"
+                                        href="?page={{ orders.previous_page_number }}">Previous</a>
                                     {% endif %}
-                            
+
                                     {% if orders.has_next %}
-                                        <a class="btn btn-outline-primary rounded-pill" href="?page={{ orders.next_page_number }}">Next</a>
+                                    <a class="btn btn-outline-primary rounded-pill"
+                                        href="?page={{ orders.next_page_number }}">Next</a>
                                     {% endif %}
                                 </span>
                             </div>
                         </div>
-                        
+
                     </div>
                     <!-- End Table with stripped rows -->
 

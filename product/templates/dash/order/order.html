@@ -1,0 +1,123 @@
+{% extends 'dash.html' %}
+
+
+{% block content %}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Order number {{order.id}}</h5>
+                    <!-- Table with stripped rows -->
+                    <div class="datatable-wrapper datatable-loading no-footer sortable searchable fixed-columns">
+                        <div class="datatable-container border-0">
+                            <div class="card-body p-0">
+                                <div class="row p-3">
+                                  <div class="col-sm-3">
+                                    <h6 class="mb-0">Full Name</h6>
+                                  </div>
+                                  <div class="col-sm-9 text-secondary">
+                                    {{order.full_name}}
+                                  </div>
+                                </div>
+                                <hr class="m-0">
+                                <div class="row p-3">
+                                  <div class="col-sm-3">
+                                    <h6 class="mb-0">Email</h6>
+                                  </div>
+                                  <div class="col-sm-9 text-secondary">
+                                    {{order.email}}
+                                  </div>
+                                </div>
+                                
+                                <hr class="m-0">
+                                <div class="row p-3">
+                                  <div class="col-sm-3">
+                                    <h6 class="mb-0">Phone</h6>
+                                  </div>
+                                  <div class="col-sm-9 text-secondary">
+                                    {{order.phone}} 
+                                  </div>
+                                </div>
+
+                                <hr class="m-0">
+                                <div class="row p-3">
+                                  <div class="col-sm-3">
+                                    <h6 class="mb-0">Payment</h6>
+                                  </div>
+                                  <div class="col-sm-9 text-secondary">
+                                    {{order.payment}} 
+                                  </div>
+                                </div>
+
+                                <hr class="m-0">
+                                <div class="row p-3">
+                                  <div class="col-sm-3">
+                                    <h6 class="mb-0">Date</h6>
+                                  </div>
+                                  <div class="col-sm-9 text-secondary">
+                                    {{order.created}} 
+                                  </div>
+                                </div>
+                                
+                                
+                                <hr class="m-0">
+                                <div class="row p-3">
+                                  <div class="col-sm-12">
+
+                                    {% if not order.confirmed %}
+                                    <a class="btn btn-info m-0 text-white" href="/order/confirm?confirm={{order.id}}">Confirm</a>
+                                    {% endif %}
+
+                                    {% if not order.canceled %}
+                                    <a class="btn btn-danger m-0" href="/order/cancel?cancel={{order.id}}">Cancel</a>
+                                    {% endif %}
+
+
+                                  </div>
+                                </div>
+                                
+                              </div>
+                            
+                        </div>
+                    </div>
+                    <!-- End Table with stripped rows -->
+
+                </div>
+            </div>
+
+        </div>
+        <div class="col-12">
+            <div class="card top-selling overflow-auto">
+              <div class="card-body pb-0">
+                <h5 class="card-title">Products</h5>
+                <table class="table table-borderless">
+                  <thead class="bg-light">
+                    <tr>
+                      <th scope="col">Preview</th>
+                      <th scope="col">Product</th>
+                      <th scope="col">Price</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                   
+                    {% for product in order.products.all %}
+                    <tr>
+                        <th scope="row"><a href="/product/{{product.id}}"><img width="50px" src="{{product.image.url}}" alt=""></a></th>
+                        <td><a href="/product/{{product.id}}" class="text-primary fw-bold">{{product.name}}</a></td>
+                        <td>{{product.price}} MAD</td>
+                      </tr>
+                    {% empty %}
+                     <h3>No Products</h3>
+                    {% endfor %}
+                  </tbody>
+                </table>
+        
+              </div>
+        
+            </div>
+          </div>
+    </div>
+</div>
+{% endblock content %}

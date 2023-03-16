@@ -4,7 +4,6 @@
 
 {% block content %}
 <div class="container">
-
     <section class="section row error-404 min-vh-100 d-flex flex-column align-items-center justify-content-center">
         <div class="card col-md-6 p-3 border shadow-sm">
             <h4 class="mb-2" >{% trans 'Connextion' %}</h4>
@@ -43,7 +42,7 @@
                     <button type="submit" id="submit-button" class="btn mt-3 w-100 btn-block text-center">
                         {% trans 'Connextion' %}
                     </button>
-                    <p><a href="{% trans "S'identifier" %}" class="btn w-100 btn-block text-center mt-3 bold">
+                    <p><a href="{% url 'register' %}" class="btn w-100 btn-block text-center mt-3 bold">
                         {% trans 'Nouveau compte' %}
                     </a></p>
                     {% comment %} <a href="{% url 'reset_password' %}" class="mb-3 btn-block">{% trans 'Forgot Password' %}?</a> {% endcomment %}

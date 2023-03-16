@@ -25,7 +25,7 @@
                   </div>
                   <div class="col-md-9">
                     <h3 class="p-0 mt-2">{{product.name}}</h3>
-                    <h4><sup>MAD</sup>{{product.price}}</h4>
+                    <h4><sup>{% trans "MAD" %}</sup>{{product.price}}</h4>
                     <button onclick="remove('{{product.id}}')" class="btn btn-danger btn-sm d-flex px-3"> <span>{% trans "Supprimer" %}</span></button>
                   </div>
                 </div>
@@ -56,7 +56,7 @@
                   <div class="form-group">
                       <label for="payment" class="mt-2"><strong>{% trans "Méthode de payement" %}</strong></label>
                       <select class="form-control" id="payment" name="payment" required>
-                          <option value="">Select payement</option>
+                          <option value="">{% trans "Select payement" %}</option>
                           <option value="Bank RIP">Bank RIP</option>
                           <option value="Skrill">Skrill</option>
                           <option value="Western Union">Western Union</option>

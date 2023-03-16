@@ -38,12 +38,12 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'django.middleware.locale.LocaleMiddleware',
 ]
 
 ROOT_URLCONF = 'algo.urls'
@@ -62,6 +62,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.i18n'
                 
             ],
         },
@@ -115,11 +116,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
 
 # Define the languages supported by the application.
-LANGUAGES = [
-    ('fr', 'French'),
-    ('ar', 'Arabic'),
- 
-]
+
 
 # Set the default language.
 LANGUAGE_CODE = 'fr-fr'
@@ -138,6 +135,12 @@ LOCALE_PATHS = [
     os.path.join(BASE_DIR, 'locale'),
 ]
 
+
+LANGUAGES = [
+    ('fr', 'French'),
+    ('ar', 'Arabic'),
+ 
+]
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/

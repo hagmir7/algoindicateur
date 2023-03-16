@@ -7,7 +7,7 @@ from django.conf.urls.static import static
 from django_summernote import urls as summernote_urls
 
 urlpatterns = [
-     path('i18n/', include('django.conf.urls.i18n')),
+    path("i18n/", include("django.conf.urls.i18n")),
 
 ]
 

@@ -69,7 +69,7 @@ def dashboard(request):
 
 # Product Admin
 def products(request):
-    list = Product.objects.all().order_by('-date')
+    list = Product.objects.filter(language__code=request.LANGUAGE_CODE).order_by('-date')
     paginator = Paginator(list, 25) # Show 25 contacts per page.
 
     page_number = request.GET.get('page')
@@ -411,14 +411,29 @@ def ConfirmOrder(request):
 
 def CancelOrder(request):
     if request.user.is_superuser:
-        id = request.GET.get('confirm')
+        id = request.GET.get('cancel')
         order = Order.objects.get(id=id)
         if order.canceled:
             order.canceled = False
         else:
             order.canceled = True
         order.save()
-        return JsonResponse({'message': ''})
+        messages.success(request, 'The order was canceled successfully.')
+        referer = request.META.get('HTTP_REFERER')
+        return redirect(referer)
+    
+
+def order(request, pk):
+    if request.user.is_superuser:
+        order = Order.objects.get(id=pk)
+        context = {
+            'order': order
+        }
+
+        return render(request, 'dash/order/order.html', context)
+    else:
+        return redirect('/')
+
         
 
 

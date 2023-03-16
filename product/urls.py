@@ -31,7 +31,7 @@ urlpatterns = [
 
     # 
     path('thanks', thanks),
-    path('change/language', change_language, name='lang'),
+
 
 
     # Orders
@@ -41,4 +41,5 @@ urlpatterns = [
     path("order/cancel", CancelOrder),
     path("order/confirm", ConfirmOrder),
     path("order/new", OrderNew),
+    path('order/<int:pk>', order)
 ]

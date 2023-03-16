@@ -7,14 +7,14 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <title>Algo Indicateur</title>
-    <meta content="" name="description">
+    <meta content="Le robo de trading, également connu sous le nom de trading algorithmique, est une méthode de trading." name="description">
     <meta content="" name="keywords">
+    <link rel='canonical' href='{{request.path}}' />
     <!-- Favicons -->
     <link href="{% static 'assets/img/favicon.png' %}" rel="icon">
     <link href="{% static 'assets/img/favicon.png' %}" rel="apple-touch-icon">
     <!-- Google Fonts -->
-    <link
-        href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
         rel="stylesheet">
 
   <!-- Vendor CSS Files -->
@@ -79,8 +79,9 @@
                     <div class="col-lg-3 col-md-6 footer-links">
                         <h4>{% trans "Nos produits" %}</h4>
                         <ul>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Algo indicateur</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Robot Auto trading</a></li>
+                            {% for product in footer_products %}
+                            <li><i class="bx bx-chevron-right"></i><a href="/product/{{product.id}}">{{product.name}}</a></li>
+                            {% endfor %}
                         </ul>
                     </div>
 
@@ -135,9 +136,9 @@
                 product: value,
             };
 
-            {% if not 'cart' in request.path %}
+            // {% if not 'cart' in request.path %}
                 document.querySelector('#product-'+value).innerHTML = '<div class="spinner-border"  style="width: 20px;height: 20px;" role="status"> </div>'
-            {% endif %}
+            // {% endif %}
             
             // Convert params object to query string
             const queryString = Object.entries(params)
@@ -168,7 +169,6 @@
             }
             
           }
-
 
     </script>
     

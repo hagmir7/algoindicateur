@@ -4,11 +4,13 @@ from django.contrib.auth import views as auth_view
 from django.contrib.auth.decorators import login_required
 from django.utils.translation import gettext as _
 from django.contrib.auth.views import LoginView, LogoutView
-
+from django.views.i18n import set_language
 
 
 urlpatterns = [
     path('user/<slug:slug>', ProfileView.as_view(), name='profile'),
+    path('set-language/', set_language, name='set_language'),
+    
     path('profile/update/<int:pk>/', login_required(ProfileViewUpdate.as_view()), name='profile_update'),
     path('user/update/info/', login_required(user_update_info), name='user_update_info'),
     path('accounts/register', register, name='register',),

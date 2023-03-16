@@ -19,8 +19,8 @@
             <div class="row d-flex justify-content-center p-3 rounded">
                 <div class="col-lg-7 order-2">
                     <div class="content">
-                        <h3><del>{{product.old_price}} MAD</del></h3>
-                        <h4><sup>MAD</sup>{{product.price}}<span>Illimité</span></h4>
+                        <h3><del>{{product.old_price}} {% trans "MAD" %}</del></h3>
+                        <h4><sup>{% trans "MAD" %}</sup>{{product.price}}<span>{% trans "Illimité" %}</span></h4>
                         <a onclick="addToCart(`{{product.id}}`)" href="#!" class="buy-btn py-2 px-4 text-center me-2" id="product-{{product.id}}">
                             {% if user in product.cart.all %}
                             <i class="bx bx-check"></i>

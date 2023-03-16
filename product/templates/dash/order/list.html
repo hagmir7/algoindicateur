@@ -6,10 +6,9 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-lg-12">
-
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">All Articles</h5>
+                    <h5 class="card-title">All Ordres</h5>
                     <!-- Table with stripped rows -->
                     <div class="datatable-wrapper datatable-loading no-footer sortable searchable fixed-columns">
                         <div class="datatable-container">
@@ -19,14 +18,15 @@
                                         <th data-sortable="true">
                                             <a href="#" class="datatable-sorter">#</a>
                                         </th>
+                                        <th data-sortable="true">Customer</th>
                                         <th data-sortable="true">
-                                            <a href="#" class="datatable-sorter">Title</a>
-                                        </th>
-                                        <th data-sortable="true">
-                                            <a href="#" class="datatable-sorter">Creator</a>
+                                            <a href="#" class="datatable-sorter">Auth</a>
                                         </th>
                                         <th data-sortable="true">
                                             <a href="#" class="datatable-sorter">Date</a>
+                                        </th>
+                                        <th data-sortable="true">
+                                            Confirmed
                                         </th>
                                         <th data-sortable="true">
                                             <a href="#" class="datatable-sorter">Action</a>
@@ -37,37 +37,63 @@
                                     {% for order in orders %}
                                     <tr data-index="0">
                                         <td>{{order.id}}</td>
-                                        <td><a href="/order/{{order.id}}">{{order.title|truncatechars:50}}</a></td>
-                                        <td>{{order.user.first_name}} {{order.user.last_name}}</td>
-                                        <td>{{order.created|date:"F j, Y"}}</td>
+                                        <td>{{order.full_name}}</td>
+
+                                        {% if order.user %}
+                                        <td class="text-success">Yes</td>
+                                        {% else %}
+                                        <td class="text-danger">No</td>
+                                        {% endif %}
+
+                                        <td>{{order.created|date:"F j, Y"}}
                                         <td>
-                                            <a class="btn btn-sm btn-success" href="/order/update/{{order.id}}">
-                                                <i class="bx bxs-pen"></i>
+                                            {% if order.confirmed %}
+                                            <i class="bx bx-check text-success"></i>
+                                            {% else %}
+                                            {% if order.canceled %}
+                                            <i class="bx  bxs-x-circle text-danger"></i>
+                                            {% else %}
+                                            <i class="bx  bxs-time-five text-primary"></i>
+                                            {% endif %}
+
+                                            {% endif %}
+                                        </td>
+                                        <td>
+                                            <a class="btn btn-sm btn-danger btn-sm"
+                                                href="/order/cancel?cancel={{order.id}}"
+                                                onclick="return confirm('Are you sure you want to cancel Product')">
+                                                Cancel
                                             </a>
-                                            <a class="btn btn-sm btn-danger" href="/order/delete/{{order.id}}" onclick="return confirm('Are you sure you want to delete Article')">
-                                                <i class="bx bxs-trash"></i>
+                                            <a class="btn btn-sm btn-info btn-sm" href="/order/{{order.id}}">
+                                                View
+                                            </a>
+                                            <a class="btn btn-sm btn-success btn-sm"
+                                                href="/order/confirm?confirm={{order.id}}">
+                                                Confirm
                                             </a>
                                         </td>
                                     </tr>
                                     {% empty %}
                                     <h4 class="text-center"> No order</h4>
                                     {% endfor %}
-                                    
+
                                 </tbody>
                             </table>
                             <div class="pagination mb-3 d-flex justify-content-center">
                                 <span class="step-links">
                                     {% if orders.has_previous %}
-                                        <a class="btn btn-outline-primary rounded-pill" href="?page={{ orders.previous_page_number }}">Previous</a>
+                                    <a class="btn btn-outline-primary rounded-pill"
+                                        href="?page={{ orders.previous_page_number }}">Previous</a>
                                     {% endif %}
-                            
+
                                     {% if orders.has_next %}
-                                        <a class="btn btn-outline-primary rounded-pill" href="?page={{ orders.next_page_number }}">Next</a>
+                                    <a class="btn btn-outline-primary rounded-pill"
+                                        href="?page={{ orders.next_page_number }}">Next</a>
                                     {% endif %}
                                 </span>
                             </div>
                         </div>
-                        
+
                     </div>
                     <!-- End Table with stripped rows -->
 
