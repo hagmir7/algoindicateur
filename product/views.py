@@ -38,7 +38,7 @@ def home(request):
     if request.LANGUAGE_CODE == 'ar':
         first = Post.objects.get(id=1)
     else:
-        first = Post.objects.filter(id=2)
+        first = Post.objects.get(id=2)
     context = {
         'benefits': benefits,
         'posts': posts,
