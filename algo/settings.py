@@ -14,9 +14,9 @@ SECRET_KEY = 'django-insecure-gko#le@t0c(+v!5e^rw)cpf0-0*tm%iq0v88a+1%mhc95!ithe
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["aglo-production.up.railway.app", 'localhost']
+ALLOWED_HOSTS = ["aglo-production.up.railway.app", 'localhost', 'algo.up.railway.app']
 
-CSRF_TRUSTED_ORIGINS = [ "https://aglo-production.up.railway.app"]
+CSRF_TRUSTED_ORIGINS = [ "https://aglo-production.up.railway.app", "https://algo.up.railway.app"]
 
 
 
