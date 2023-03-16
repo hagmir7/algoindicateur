@@ -127,12 +127,17 @@ msgstr "قم بأتمتة أفكار التداول الخاصة بك دون ت�
 msgid "Qu'est-ce que Algo Indicateur?"
 msgstr "السؤال عن مؤشر الجودة؟"
 
+msgid "Illimité"
+msgstr "غير محدود"
 
 msgid "Vous cherchez à maximiser vos chances de succès en trading ? Découvrez comment notre système simplifié algo indicateur peut vous aider à prendre des décisions éclairées pour des transactions rentables en toute tranquillité. Vous devez savoir qu'avoir un graphique bruyant réduit les chances de succès de vos transactions jusqu'à 60% on fait 70%."
 msgstr "هل تتطلع إلى تعظيم فرصك في نجاح التداول؟ اكتشف كيف يمكن أن يساعدك نظام مؤشرات algo المبسط لدينا في اتخاذ قرارات مستنيرة بشأن الصفقات المربحة مع راحة البال. يجب أن تعلم أن وجود مخطط صاخب يقلل من فرص نجاح تداولاتك بنسبة تصل إلى 60٪ أو 70٪."
 
 msgid "les avantages du trading bot"
 msgstr "فوائد روبوتات التداول"
+
+msgid "MAD"
+msgstr "د.م"
 
 #: .\product\templates\index.html:126
 msgid "Algo indicateur, que peut faire pour vous ?"
