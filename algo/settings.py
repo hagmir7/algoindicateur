@@ -82,24 +82,24 @@ WSGI_APPLICATION = 'algo.wsgi.application'
 # }
 
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
-
-
 # DATABASES = {
 #     'default': {
-#         'ENGINE': "django.db.backends.postgresql_psycopg2",
-#         'NAME': "railway",
-#         'USER': "postgres",
-#         'PASSWORD': "X58f2hLwxprSL8kVeM5p",
-#         'HOST': "containers-us-west-145.railway.app",
-#         'PORT': "8035",
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
 # }
+
+
+DATABASES = {
+    'default': {
+        'ENGINE': "django.db.backends.postgresql_psycopg2",
+        'NAME': "railway",
+        'USER': "postgres",
+        'PASSWORD': "X58f2hLwxprSL8kVeM5p",
+        'HOST': "containers-us-west-145.railway.app",
+        'PORT': "8035",
+    }
+}
 
 
 # Password validation
