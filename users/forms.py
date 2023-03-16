@@ -32,16 +32,16 @@ class SignUpForm(forms.ModelForm):
 
 
 class UserCreationForm(forms.ModelForm):
-    username = forms.CharField(label=_('Username'), max_length=30,help_text=_("Le nom d'utilisateur ne doit pas contenir d'espaces"),
-         widget=forms.TextInput(attrs={'class': 'form-control input-size bg-secondary', 'placeholder': _('Username')}))
-    username = forms.CharField(label=_('Username'), max_length=30,help_text=_("Le nom d'utilisateur ne doit pas contenir d'espaces"), widget=forms.TextInput(
-        attrs={'class': 'form-control input-size', 'placeholder': _('Username')}))
+    username = forms.CharField(label=_("Nom d'utilisateur"), max_length=30,help_text=_("Le nom d'utilisateur ne doit pas contenir d'espaces"),
+         widget=forms.TextInput(attrs={'class': 'form-control input-size bg-secondary', 'placeholder': _("Nom d'utilisateur")}))
+    username = forms.CharField(label=_("Nom d'utilisateur"), max_length=30,help_text=_("Le nom d'utilisateur ne doit pas contenir d'espaces"), widget=forms.TextInput(
+        attrs={'class': 'form-control input-size', 'placeholder': _("Nom d'utilisateur")}))
     email = forms.EmailField(label=_('Email'), widget=forms.EmailInput(
         attrs={'class': 'form-control', 'placeholder': _('Email')}))
-    first_name = forms.CharField(label=_('First Name'), widget=forms.TextInput(
-        attrs={'class': 'form-control input-size', 'placeholder': _('First Name')}))
-    last_name = forms.CharField(label=_('Last Name'),widget=forms.TextInput(
-        attrs={'class': 'form-control input-size ', 'placeholder': _('Last Name')}))
+    first_name = forms.CharField(label=_('Prénom'), widget=forms.TextInput(
+        attrs={'class': 'form-control input-size', 'placeholder': _('Prénom')}))
+    last_name = forms.CharField(label=_('Nome'),widget=forms.TextInput(
+        attrs={'class': 'form-control input-size ', 'placeholder': _('Nome')}))
     password1 = forms.CharField(label=_('Password'), widget=forms.PasswordInput(
         attrs={'class': 'form-control input-size', 'placeholder': _('Password')}), min_length=8)
     password2 = forms.CharField(label=_('Confirm Password'), widget=forms.PasswordInput(

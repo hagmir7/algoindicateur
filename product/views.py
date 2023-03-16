@@ -8,27 +8,7 @@ from django.utils import timezone
 from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
 
-
 now = timezone.now()
-
-
-
-
-
-def change_language(request):
-    """
-    View function to change the language of the application.
-    """
-    lang_code = request.GET.get('language')
-    # Activate the language specified by lang_code
-    activate(lang_code)
-
-    # Set the language preference in the user's session
-    request.session['LANGUAGE_SESSION_KEY'] = lang_code
-
-    # Redirect the user to the previous page
-    referer = request.META.get('HTTP_REFERER')
-    return redirect(referer)
 
 
 def home(request):
@@ -144,7 +124,7 @@ def updateProduct(request, id):
     }
     return render(request, 'dash/product-create.html', context)
 
-
+@login_required
 def AdToCart(request):
     id = request.GET.get('product')
     product = get_object_or_404(Product, id=id)
@@ -202,7 +182,7 @@ def contact(request):
     } 
     return render(request, 'contact.html', context)
 
-
+@login_required
 def contactList(request):
     list = Contact.objects.all().order_by('-created')
     paginator = Paginator(list, 30) # Show 25 contacts per page.
@@ -215,7 +195,7 @@ def contactList(request):
     return render(request, 'dash/contact-list.html', context)
 
 
-
+@login_required
 def message(request, id):
     message = get_object_or_404(Contact, id=id)
     message.is_read = True
@@ -239,7 +219,7 @@ def ourProducts(request):
     }
     return render(request, 'products.html', context)
 
-
+@login_required
 def listBenefit(request):
     list = Benefit.objects.all().order_by('-created')
     paginator = Paginator(list, 25) # Show 25 contacts per page.
@@ -249,7 +229,7 @@ def listBenefit(request):
     return render(request, 'dash/benefit-list.html', {'benefits': benefits})
 
 
-
+@login_required
 def createBenefit(request):
     if request.method == 'POST':
         form = BenefitForm(request.POST)
@@ -264,7 +244,7 @@ def createBenefit(request):
     return render(request, 'dash/benefit-from.html', {'form': form})
 
 
-
+@login_required
 def benefitUpdate(request, pk):
     benefit = get_object_or_404(Benefit, pk=pk)
     if request.method == 'POST':
@@ -278,7 +258,7 @@ def benefitUpdate(request, pk):
     return render(request, 'dash/benefit-from.html', {'form': form})
 
 
-
+@login_required
 def benefitDelete(request, pk):
     benefit = get_object_or_404(Benefit, pk=pk)
     if request.user.is_superuser:
@@ -354,7 +334,7 @@ def PostDetail(request, pk):
     return render(request, 'post.html', context)
 
 
-
+@login_required
 def OrderList(request):
     list = Order.objects.all().order_by('-created')
     paginator = Paginator(list, 30) # Show 25 contacts per page.
@@ -365,7 +345,7 @@ def OrderList(request):
     return render(request, 'dash/order/list.html', context)
 
 
-
+@login_required
 def OrderNew(request):
     list = Order.objects.filter(confirmed=False, canceled=False).order_by('-created')
     paginator = Paginator(list, 30) # Show 25 contacts per page.
@@ -375,7 +355,7 @@ def OrderNew(request):
     context = {'orders': orders}
     return render(request, 'dash/order/new.html', context)
 
-
+@login_required
 def OrderConfirmed(request):
     list = Order.objects.filter(confirmed=True).order_by('-created')
     paginator = Paginator(list, 30) # Show 25 contacts per page.
@@ -385,7 +365,7 @@ def OrderConfirmed(request):
     context = {'orders': orders}
     return render(request, 'dash/order/confirmed.html', context)
 
-
+@login_required
 def OrderCanceled(request):
     list = Order.objects.filter(canceled=True).order_by('-created')
     paginator = Paginator(list, 30) # Show 25 contacts per page.
@@ -396,7 +376,7 @@ def OrderCanceled(request):
     return render(request, 'dash/order/canceled.html', context)
 
 
-
+@login_required
 def ConfirmOrder(request):
     if request.user.is_superuser:
         id = request.GET.get('confirm')
@@ -410,7 +390,7 @@ def ConfirmOrder(request):
         referer = request.META.get('HTTP_REFERER')
         return redirect(referer)
     
-
+@login_required
 def CancelOrder(request):
     if request.user.is_superuser:
         id = request.GET.get('cancel')
@@ -424,7 +404,7 @@ def CancelOrder(request):
         referer = request.META.get('HTTP_REFERER')
         return redirect(referer)
     
-
+@login_required
 def order(request, pk):
     if request.user.is_superuser:
         order = Order.objects.get(id=pk)

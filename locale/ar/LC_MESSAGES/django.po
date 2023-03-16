@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-15 21:35+0100\n"
+"POT-Creation-Date: 2023-03-16 17:47+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,18 +21,32 @@ msgstr ""
 
 #: .\product\templates\cart.html:10 .\product\templates\contact.html:11
 #: .\product\templates\post.html:11 .\product\templates\product.html:9
-#: .\product\templates\products.html:27 .\templates\components\header.html:9
+#: .\product\templates\products.html:27 .\templates\components\header.html:12
 msgid "Accueil"
 msgstr "الرئيسية"
 
 #: .\product\templates\cart.html:11 .\product\templates\cart.html:13
-#: .\templates\components\header.html:13
+#: .\templates\components\header.html:16
 msgid "Panier"
 msgstr "السلة"
+
+#: .\product\templates\cart.html:28
+#: .\product\templates\components\pricing.html:15
+#: .\product\templates\components\pricing.html:16
+#: .\product\templates\product.html:22 .\product\templates\product.html:23
+#: .\product\templates\products.html:42 .\product\templates\products.html:43
+msgid "MAD"
+msgstr "د.م"
 
 #: .\product\templates\cart.html:29
 msgid "Supprimer"
 msgstr "حذف"
+
+#: .\product\templates\cart.html:34
+#, fuzzy
+#| msgid "Nos produits"
+msgid "No Produits"
+msgstr "منتجاتنا"
 
 #: .\product\templates\cart.html:40 .\product\templates\product.html:56
 msgid "Entrez vos informations"
@@ -54,6 +68,12 @@ msgstr "الهاتف"
 msgid "Méthode de payement"
 msgstr "طرق الدفع"
 
+#: .\product\templates\cart.html:59
+#, fuzzy
+#| msgid "Méthode de payement"
+msgid "Select payement"
+msgstr "طرق الدفع"
+
 #: .\product\templates\cart.html:65 .\product\templates\product.html:84
 msgid "Envoyer"
 msgstr "إرسال"
@@ -62,28 +82,33 @@ msgstr "إرسال"
 msgid "Nos tarifs"
 msgstr "أسعارنا"
 
+#: .\product\templates\components\pricing.html:16
+#: .\product\templates\product.html:23 .\product\templates\products.html:43
+msgid "Illimité"
+msgstr "غير محدود"
+
 #: .\product\templates\components\pricing.html:28
 #: .\product\templates\components\pricing.html:33
 #: .\product\templates\product.html:28 .\product\templates\products.html:54
-#: .\product\templates\products.html:59 .\templates\base.html:141
+#: .\product\templates\products.html:59 .\templates\base.html:158
 msgid "Ajouter au panier"
 msgstr "إظافة لسلة"
 
 #: .\product\templates\components\pricing.html:37
-#: .\product\templates\index.html:51 .\product\templates\index.html:134
+#: .\product\templates\index.html:51 .\product\templates\index.html:125
 #: .\product\templates\products.html:62
 msgid "Savoir plus"
 msgstr "قراءة المزيد"
 
 #: .\product\templates\components\pricing.html:46
-#: .\product\templates\index.html:147
+#: .\product\templates\index.html:138
 msgid "Voir plus"
 msgstr "مشاهدة المزيد"
 
 #: .\product\templates\contact.html:12 .\product\templates\contact.html:14
 #: .\product\templates\index.html:26 .\product\templates\thanks.html:11
-#: .\product\views.py:178 .\templates\base.html:74
-#: .\templates\components\header.html:36
+#: .\product\views.py:201 .\templates\base.html:91
+#: .\templates\components\header.html:47
 msgid "Contactez-nous"
 msgstr "تواصل معنا"
 
@@ -123,23 +148,35 @@ msgstr ""
 msgid "Automatisez vos idées de trading sans intervention humaine"
 msgstr "قم بأتمتة أفكار التداول الخاصة بك دون تدخل بشري."
 
-
-msgid "Qu'est-ce que Algo Indicateur?"
-msgstr "ما هو مؤشر Algo؟"
-
-msgid "Illimité"
-msgstr "غير محدود"
-
-msgid "Vous cherchez à maximiser vos chances de succès en trading ? Découvrez comment notre système simplifié algo indicateur peut vous aider à prendre des décisions éclairées pour des transactions rentables en toute tranquillité. Vous devez savoir qu'avoir un graphique bruyant réduit les chances de succès de vos transactions jusqu'à 60% on fait 70%."
-msgstr "هل تتطلع إلى تعظيم فرصك في نجاح التداول؟ اكتشف كيف يمكن أن يساعدك نظام مؤشرات algo المبسط لدينا في اتخاذ قرارات مستنيرة بشأن الصفقات المربحة مع راحة البال. يجب أن تعلم أن وجود مخطط صاخب يقلل من فرص نجاح تداولاتك بنسبة تصل إلى 60٪ أو 70٪."
-
+#: .\product\templates\index.html:68
 msgid "les avantages du trading bot"
 msgstr "فوائد روبوتات التداول"
 
-msgid "MAD"
-msgstr "د.م"
+#: .\product\templates\index.html:97
+msgid "Qu'est-ce que Algo Indicateur?"
+msgstr "ما هو مؤشر Algo؟"
 
-#: .\product\templates\index.html:126
+#: .\product\templates\index.html:98
+#, fuzzy, python-format
+#| msgid ""
+#| "Vous cherchez à maximiser vos chances de succès en trading ? Découvrez "
+#| "comment notre système simplifié algo indicateur peut vous aider à prendre "
+#| "des décisions éclairées pour des transactions rentables en toute "
+#| "tranquillité. Vous devez savoir qu'avoir un graphique bruyant réduit les "
+#| "chances de succès de vos transactions jusqu'à 60% on fait 70%."
+msgid ""
+"Vous cherchez à maximiser vos chances de succès en trading ? Découvrez "
+"comment notre système simplifié algo indicateur peut vous aider à prendre "
+"des décisions éclairées pour des transactions rentables en toute "
+"tranquillité. Vous devez savoir qu'avoir un graphique bruyant réduit les "
+"chances de succès de vos transactions jusqu'à 60%% on fait 70%%."
+msgstr ""
+"هل تتطلع إلى تعظيم فرصك في نجاح التداول؟ اكتشف كيف يمكن أن يساعدك نظام "
+"مؤشرات algo المبسط لدينا في اتخاذ قرارات مستنيرة بشأن الصفقات المربحة مع "
+"راحة البال. يجب أن تعلم أن وجود مخطط صاخب يقلل من فرص نجاح تداولاتك بنسبة "
+"تصل إلى 60٪ أو 70٪."
+
+#: .\product\templates\index.html:117
 msgid "Algo indicateur, que peut faire pour vous ?"
 msgstr "مؤشر Algo ، ما الذي يمكن أن يفعله من أجلك؟"
 
@@ -148,7 +185,7 @@ msgid "Fermer"
 msgstr "غلق"
 
 #: .\product\templates\products.html:28 .\product\templates\products.html:30
-#: .\templates\base.html:64 .\templates\components\header.html:10
+#: .\templates\base.html:80 .\templates\components\header.html:13
 msgid "Nos produits"
 msgstr "منتجاتنا"
 
@@ -156,7 +193,7 @@ msgstr "منتجاتنا"
 msgid "Merci"
 msgstr "شكرا"
 
-#: .\product\templates\thanks.html:10 .\templates\blanck.html:10
+#: .\product\templates\thanks.html:10
 msgid "Nous vous remercions de votre commande"
 msgstr "شكرا لطلبك"
 
@@ -168,43 +205,43 @@ msgstr "سوف نتصل بك قريبا. لمزيد من المعلومات،"
 msgid "Retour aux produits"
 msgstr "رجوع إلى المنتجات"
 
-#: .\product\views.py:87
+#: .\product\views.py:110
 msgid "Produit créé avec succès!"
 msgstr "تم إنشاء المنتج بنجاح!"
 
-#: .\product\views.py:102
+#: .\product\views.py:125
 #, fuzzy
 #| msgid "L'article a été supprimé avec succès."
 msgid "Le produit a été supprimé avec succès."
 msgstr "تم حذف المقال بنجاح."
 
-#: .\product\views.py:116
+#: .\product\views.py:139
 msgid "Produit mis à jour avec succès"
 msgstr "تم تحديث المنتج بنجاح"
 
-#: .\product\views.py:173
+#: .\product\views.py:196
 msgid "Le message a été envoyé avec succès"
 msgstr "تم إرسال الرسالة بنجاح"
 
-#: .\product\views.py:282
+#: .\product\views.py:305
 #, fuzzy
 #| msgid "L'article créé avec succès."
 msgid "Article créé avec succès."
 msgstr "تم إنشاء المقال بنجاح."
 
-#: .\product\views.py:309
+#: .\product\views.py:332
 #, fuzzy
 #| msgid "L'article a été edit avec succès."
 msgid "Article a été edit avec succès."
 msgstr "تم تحرير المقالة بنجاح."
 
-#: .\product\views.py:321
+#: .\product\views.py:344
 #, fuzzy
 #| msgid "L'article a été supprimé avec succès."
 msgid "Article a été supprimé avec succès."
 msgstr "تم حذف المقال بنجاح."
 
-#: .\templates\base.html:60
+#: .\templates\base.html:76
 msgid ""
 "Algo indicateur est une plateforme proposant un indicateur pour maximiser "
 "les chances de succès en trading et un robot intelligent pour le trading "
@@ -213,19 +250,21 @@ msgstr ""
 "مؤشر Algo عبارة عن منصة تقدم مؤشرًا لتعظيم فرص النجاح في التداول وروبوت ذكي "
 "للتداول الآلي."
 
-#: .\templates\base.html:81
+#: .\templates\base.html:98
 msgid "Méthodes de paiement"
 msgstr "طرق الدفع"
 
-#: .\templates\base.html:148
+#: .\templates\base.html:165
 msgid "Êtes-vous sûr de vouloir supprimer le produit"
 msgstr "هل أنت متأكد أنك تريد حذف المنتج"
 
-#: .\templates\components\header.html:20
+#: .\templates\components\header.html:23
 msgid "Langue"
 msgstr "اللغة"
 
-#: .\templates\components\header.html:38
+#: .\templates\components\header.html:49
+#: .\users\templates\registrations\login.html:9
+#: .\users\templates\registrations\login.html:43
 msgid "Connextion"
 msgstr "تسجيل الدخول"
 
@@ -279,14 +318,12 @@ msgstr ""
 
 #: .\users\forms.py:35 .\users\forms.py:36 .\users\forms.py:37
 #: .\users\forms.py:38 .\users\templates\profile\user_update_info.html:17
-#: .\users\templates\registrations\login.html:22
 msgid "Username"
 msgstr ""
 
 #: .\users\forms.py:35 .\users\forms.py:37
-#: .\users\templates\profile\user_update_info.html:20
-msgid "Username should not contain spaces"
-msgstr ""
+msgid "Le nom d'utilisateur ne doit pas contenir d'espaces"
+msgstr "يجب ألا يحتوي اسم المستخدم على مسافات"
 
 #: .\users\forms.py:39 .\users\forms.py:40
 #: .\users\templates\password_reset\reset_password.html:13
@@ -296,6 +333,14 @@ msgstr ""
 msgid "Email"
 msgstr ""
 
+msgid "Prénom"
+msgstr "الإسم الأول"
+
+msgid "Nome"
+msgstr "الإسم الثاني"
+
+
+
 #: .\users\forms.py:41 .\users\forms.py:42
 msgid "First Name"
 msgstr ""
@@ -304,9 +349,7 @@ msgstr ""
 msgid "Last Name"
 msgstr ""
 
-#: .\users\forms.py:45 .\users\forms.py:46
-#: .\users\templates\registrations\login.html:34
-#: .\users\templates\settings.html:38
+#: .\users\forms.py:45 .\users\forms.py:46 .\users\templates\settings.html:38
 msgid "Password"
 msgstr "كلمة المرور"
 
@@ -365,15 +408,14 @@ msgstr ""
 #: .\users\templates\password_reset\password_reset_confirm.html:39
 #: .\users\templates\password_reset\reset_done.html:18
 #: .\users\templates\password_reset\reset_password_done.html:14
-#: .\users\templates\registrations\login.html:10
-#: .\users\templates\registrations\login.html:44 .\users\views.py:44
+#: .\users\views.py:44
 msgid "Log in"
 msgstr ""
 
 #: .\users\templates\password_reset\password_reset_confirm.html:40
 #: .\users\templates\password_reset\reset_done.html:19
 #: .\users\templates\password_reset\reset_password_done.html:15
-#: .\users\templates\registrations\login.html:47 .\users\views.py:88
+#: .\users\views.py:88
 msgid "Register"
 msgstr ""
 
@@ -560,6 +602,10 @@ msgstr ""
 msgid "Info has been updated successfully..."
 msgstr ""
 
+#: .\users\templates\profile\user_update_info.html:20
+msgid "Username should not contain spaces"
+msgstr ""
+
 #: .\users\templates\profile\user_update_info.html:22
 msgid "First name"
 msgstr ""
@@ -574,25 +620,28 @@ msgid ""
 "recover your account if you encounter a problem logging in."
 msgstr ""
 
-#: .\users\templates\registrations\login.html:29
-msgid "Enter your username"
-msgstr ""
+#: .\users\templates\registrations\login.html:21
+#: .\users\templates\registrations\login.html:28
+msgid "Nom d'utilisateur"
+msgstr "اسم المستخدم"
 
-#: .\users\templates\registrations\login.html:40
-msgid "Enter your Passwrd"
-msgstr ""
+#: .\users\templates\registrations\login.html:33
+#: .\users\templates\registrations\login.html:39
+msgid "Mot de passe"
+msgstr "كلمة المرور"
 
+#: .\users\templates\registrations\login.html:46
 #: .\users\templates\registrations\register.html:11
-msgid "Sing Up | Log In"
-msgstr ""
+msgid "Nouveau compte"
+msgstr "حساب جديد"
 
 #: .\users\templates\registrations\register.html:50
-msgid "Sing in"
-msgstr ""
+msgid "S'identifier"
+msgstr "تسجيل"
 
 #: .\users\templates\registrations\register.html:51
-msgid "I have account"
-msgstr ""
+msgid "J'ai un compte"
+msgstr "لدي حساب"
 
 #: .\users\templates\settings.html:16
 msgid "Profile"
@@ -614,7 +663,7 @@ msgstr ""
 msgid "Change your password."
 msgstr ""
 
-#: .\users\urls.py:20
+#: .\users\urls.py:22
 msgid "Forgot Password"
 msgstr ""
 
