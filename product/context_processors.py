@@ -9,7 +9,7 @@ def context(request):
     
     message = _("Bonjour, je veux plus de détails sur le service de robot de trading")
     
-    footer_products = Product.objects.filter(language__code=request.LANGUAGE_CODE).order_by('-date')[0:4]
+    footer_products = Product.objects.filter(language__code=request.LANGUAGE_CODE).order_by('-created')[0:4]
     
     if request.LANGUAGE_CODE == 'ar':
         dir = 'rtl'
