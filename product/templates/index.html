@@ -43,8 +43,8 @@
                 </div>
                 {% for post  in  post_robo%}
                 <div class="row d-flex justify-content-center">
-                    <div class="col-md-10 row">
-                        <div class="col-lg-8 order-md-1 order-2 d-flex flex-column">
+                    <div class="col-md-10 row mb-4">
+                        <div class="col-lg-8 d-flex flex-column {% if forloop.counter|divisibleby:2 %} order-md-2 {% endif%}">
                             <div class="content">
                                 <h3>{{post.title}}</h3>
                                 <p class="lh-lg h6 mt-3" dir="auto">{{post.description}} </p>
