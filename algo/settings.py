@@ -181,8 +181,6 @@ SUMMERNOTE_CONFIG = {
 
 if os.getcwd() == '/app':
 
-
-
     DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
     AWS_ACCESS_KEY_ID = 'DO004CNRT4BAPJMAR7QH'
     AWS_SECRET_ACCESS_KEY = 'ey7KOnDSCbMRLNValKv0mqV8TkID0WssTfHsW9mTRE4'
