@@ -179,28 +179,39 @@ SUMMERNOTE_CONFIG = {
 
 
 
-if os.getcwd() == '/app':
+# if os.getcwd() == '/app':
+# https://agmir.nyc3.cdn.digitaloceanspaces.com/public/images/2.jpg
+
+# https://agmir.nyc3.digitaloceanspaces.com/agmir/public/images/9.jpg
+# https://agmir.nyc3.cdn.digitaloceanspaces.com/agmir/public/images/9.jpg
+
+# https://agmir.nyc3.cdn.digitaloceanspaces.com/agmir/public/images/2.jpg
+
+
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+AWS_ACCESS_KEY_ID = 'DO004CNRT4BAPJMAR7QH'
+AWS_SECRET_ACCESS_KEY = 'ey7KOnDSCbMRLNValKv0mqV8TkID0WssTfHsW9mTRE4'
+AWS_STORAGE_BUCKET_NAME = 'agmir'
+AWS_S3_ENDPOINT_URL = 'https://agmir.nyc3.digitaloceanspaces.com'
+
+AWS_S3_CUSTOM_DOMAIN = 'agmir.nyc3.cdn.digitaloceanspaces.com/agmir'
+AWS_S3_OBJECT_PARAMETERS = {
+    'CacheControl': 'max-age=86400',
+}
+AWS_DEFAULT_ACL = 'public-read'
+AWS_LOCATION = 'public'
+
+# AWS_S3_FILE_OVERWRITE = True
 
 
 
-    DEFAULT_FILE_STORAGE = 'django.core.files.storage.FileSystemStorage'
-
-    MEDIA_URL = 'https://%s/%s/' % ('agmir.nyc3.digitaloceanspaces.com/agmir', 'public')
-
-    AWS_ACCESS_KEY_ID = 'DO004CNRT4BAPJMAR7QH'
-    AWS_SECRET_ACCESS_KEY = 'ey7KOnDSCbMRLNValKv0mqV8TkID0WssTfHsW9mTRE4'
-    AWS_STORAGE_BUCKET_NAME = 'agmir'
-    AWS_S3_ENDPOINT_URL = 'https://agmir.nyc3.digitaloceanspaces.com'
-    AWS_S3_FILE_OVERWRITE = False
-    AWS_LOCATION = 'public'
-
-    DATABASES = {
-        'default': {
-            'ENGINE': "django.db.backends.postgresql_psycopg2",
-            'NAME': "railway",
-            'USER': "postgres",
-            'PASSWORD': "aAkmpW0rpwP07Fhi93nE",
-            'HOST': "containers-us-west-34.railway.app",
-            'PORT': "6145",
-        }
-    }
+# DATABASES = {
+#     'default': {
+#         'ENGINE': "django.db.backends.postgresql_psycopg2",
+#         'NAME': "railway",
+#         'USER': "postgres",
+#         'PASSWORD': "aAkmpW0rpwP07Fhi93nE",
+#         'HOST': "containers-us-west-34.railway.app",
+#         'PORT': "6145",
+#     }
+# }
