@@ -181,27 +181,26 @@ SUMMERNOTE_CONFIG = {
 
 if os.getcwd() == '/app':
 
-    pass
 
 
-    # DEFAULT_FILE_STORAGE = 'django.core.files.storage.FileSystemStorage'
+    DEFAULT_FILE_STORAGE = 'django.core.files.storage.FileSystemStorage'
 
-    # MEDIA_URL = 'https://%s/%s/' % ('agmir.nyc3.digitaloceanspaces.com/agmir', 'public')
+    MEDIA_URL = 'https://%s/%s/' % ('agmir.nyc3.digitaloceanspaces.com/agmir', 'public')
 
-    # AWS_ACCESS_KEY_ID = 'DO004CNRT4BAPJMAR7QH'
-    # AWS_SECRET_ACCESS_KEY = 'ey7KOnDSCbMRLNValKv0mqV8TkID0WssTfHsW9mTRE4'
-    # AWS_STORAGE_BUCKET_NAME = 'agmir'
-    # AWS_S3_ENDPOINT_URL = 'https://agmir.nyc3.digitaloceanspaces.com'
-    # AWS_S3_FILE_OVERWRITE = False
-    # AWS_LOCATION = 'public'
+    AWS_ACCESS_KEY_ID = 'DO004CNRT4BAPJMAR7QH'
+    AWS_SECRET_ACCESS_KEY = 'ey7KOnDSCbMRLNValKv0mqV8TkID0WssTfHsW9mTRE4'
+    AWS_STORAGE_BUCKET_NAME = 'agmir'
+    AWS_S3_ENDPOINT_URL = 'https://agmir.nyc3.digitaloceanspaces.com'
+    AWS_S3_FILE_OVERWRITE = False
+    AWS_LOCATION = 'public'
 
-DATABASES = {
-    'default': {
-        'ENGINE': "django.db.backends.postgresql_psycopg2",
-        'NAME': "railway",
-        'USER': "postgres",
-        'PASSWORD': "X58f2hLwxprSL8kVeM5p",
-        'HOST': "containers-us-west-145.railway.app",
-        'PORT': "8035",
+    DATABASES = {
+        'default': {
+            'ENGINE': "django.db.backends.postgresql_psycopg2",
+            'NAME': "railway",
+            'USER': "postgres",
+            'PASSWORD': "aAkmpW0rpwP07Fhi93nE",
+            'HOST': "containers-us-west-34.railway.app",
+            'PORT': "6145",
+        }
     }
-}

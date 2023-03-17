@@ -14,8 +14,8 @@ now = timezone.now()
 def home(request):
     benefits = Benefit.objects.filter(language__code=request.LANGUAGE_CODE).order_by('-created')[0:10]
 
-    products_indicateur = Product.objects.filter(language__code=request.LANGUAGE_CODE, category__name="Algo Indicateur").order_by('-date')
-    products_robot = Product.objects.filter(language__code=request.LANGUAGE_CODE, category__name="Robot Auto trading").order_by('-date')
+    products_indicateur = Product.objects.filter(language__code=request.LANGUAGE_CODE, category__name="Algo Indicateur").order_by('-created')
+    products_robot = Product.objects.filter(language__code=request.LANGUAGE_CODE, category__name="Robot Auto trading").order_by('-created')
 
     post_indicateur = Post.objects.filter(language__code=request.LANGUAGE_CODE, category__name="Algo Indicateur").order_by('-created')
     post_robo = Post.objects.filter(language__code=request.LANGUAGE_CODE, category__name="Robot Auto trading").order_by('-created')
@@ -33,7 +33,7 @@ def home(request):
 
 @login_required
 def dashboard(request):
-    products = Product.objects.all().order_by('-date')
+    products = Product.objects.all().order_by('-created')
     users = Product.objects.all().order_by('?')
     
 
@@ -53,7 +53,7 @@ def dashboard(request):
 
 # Product Admin
 def products(request):
-    list = Product.objects.all().order_by('-date')
+    list = Product.objects.all().order_by('-created')
     paginator = Paginator(list, 25) # Show 25 contacts per page.
 
     page_number = request.GET.get('page')
@@ -213,7 +213,7 @@ def message(request, id):
 
 
 def ourProducts(request):
-    list = Product.objects.filter(language__code=request.LANGUAGE_CODE).order_by('-date')
+    list = Product.objects.filter(language__code=request.LANGUAGE_CODE).order_by('-created')
     paginator = Paginator(list, 25) # Show 25 contacts per page.
 
     page_number = request.GET.get('page')
@@ -333,7 +333,7 @@ def PostDelete(request, pk):
 
 def PostDetail(request, pk):
     post = get_object_or_404(Post, pk=pk)
-    products = Product.objects.filter(language__code=request.LANGUAGE_CODE).order_by('-date')[0:4]
+    products = Product.objects.filter(language__code=request.LANGUAGE_CODE).order_by('-created')[0:4]
     context = {'title': post.title, "post": post, 'products': products}
     return render(request, 'post.html', context)
 
