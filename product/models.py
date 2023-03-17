@@ -44,10 +44,10 @@ class Product(models.Model):
     cart = models.ManyToManyField(User, blank=True, related_name="user_cart")
     description = models.TextField()
     body = models.TextField()
-    date = models.DateTimeField(auto_now=False, auto_now_add=True)
     language = models.ForeignKey(Language, on_delete=models.CASCADE, null=True, blank=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE, null=True, blank=True)
     slug = models.SlugField()
+    created = models.DateTimeField(auto_now=False, auto_now_add=True)
 
     def __str__(self):
         return self.name
