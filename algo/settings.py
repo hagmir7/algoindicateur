@@ -180,17 +180,8 @@ SUMMERNOTE_CONFIG = {
 
 
 if os.getcwd() == '/app':
-    DATABASES = {
-        'default': {
-            'ENGINE': "django.db.backends.postgresql_psycopg2",
-            'NAME': "railway",
-            'USER': "postgres",
-            'PASSWORD': "X58f2hLwxprSL8kVeM5p",
-            'HOST': "containers-us-west-145.railway.app",
-            'PORT': "8035",
-        }
-    }
 
+    pass
 
 
     # DEFAULT_FILE_STORAGE = 'django.core.files.storage.FileSystemStorage'
@@ -204,5 +195,13 @@ if os.getcwd() == '/app':
     # AWS_S3_FILE_OVERWRITE = False
     # AWS_LOCATION = 'public'
 
-
-
+    DATABASES = {
+        'default': {
+            'ENGINE': "django.db.backends.postgresql_psycopg2",
+            'NAME': "railway",
+            'USER': "postgres",
+            'PASSWORD': "X58f2hLwxprSL8kVeM5p",
+            'HOST': "containers-us-west-145.railway.app",
+            'PORT': "8035",
+        }
+    }
