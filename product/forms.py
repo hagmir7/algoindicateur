@@ -7,10 +7,11 @@ class ProductForm(forms.ModelForm):
     body = forms.CharField(widget=SummernoteWidget())
     class Meta:
         model = Product
-        fields = ['name', 'image', 'price', 'old_price', 'description', 'body', 'language']
+        fields = ['name', 'image', 'price', 'old_price', 'description', 'body', 'language', 'category']
         widgets = {
             'description': forms.Textarea(attrs={'rows': 5}),
             'language': forms.Select(attrs={'class': 'form-select'}),
+            'category': forms.Select(attrs={'class': 'form-select'}),
         }
 
 
@@ -31,11 +32,12 @@ class ContactForm(forms.ModelForm):
 class BenefitForm(forms.ModelForm):
     class Meta:
         model = Benefit
-        fields = ['title', 'description', 'language']
+        fields = ['title', 'description', 'language', 'category']
         widgets = {
             'title': forms.TextInput(attrs={'class': 'form-control', 'required': True}),
             'description': forms.Textarea(attrs={'class': 'form-control', 'rows': 3, 'required': True}),
             'language': forms.Select(attrs={'class': 'form-select'}),
+            'category': forms.Select(attrs={'class': 'form-select'}),
         }
 
 
@@ -44,9 +46,10 @@ class PostForm(forms.ModelForm):
     body = forms.CharField(widget=SummernoteWidget())
     class Meta:
         model = Post
-        fields = ['title', 'image', 'description', 'body', 'language']
+        fields = ['title', 'image', 'description', 'body', 'language', 'category']
         widgets = {
             'language': forms.Select(attrs={'class': 'form-select'}),
+            'category': forms.Select(attrs={'class': 'form-select'}),
         }
 
 class OrderForm(forms.ModelForm):

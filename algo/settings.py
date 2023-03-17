@@ -33,6 +33,7 @@ INSTALLED_APPS = [
     'product',
     'users',
     'django_summernote',
+    'storages'
 ]
 
 MIDDLEWARE = [
@@ -189,3 +190,19 @@ if os.getcwd() == '/app':
             'PORT': "8035",
         }
     }
+
+
+
+    # DEFAULT_FILE_STORAGE = 'django.core.files.storage.FileSystemStorage'
+
+    # MEDIA_URL = 'https://%s/%s/' % ('agmir.nyc3.digitaloceanspaces.com/agmir', 'public')
+
+    # AWS_ACCESS_KEY_ID = 'DO004CNRT4BAPJMAR7QH'
+    # AWS_SECRET_ACCESS_KEY = 'ey7KOnDSCbMRLNValKv0mqV8TkID0WssTfHsW9mTRE4'
+    # AWS_STORAGE_BUCKET_NAME = 'agmir'
+    # AWS_S3_ENDPOINT_URL = 'https://agmir.nyc3.digitaloceanspaces.com'
+    # AWS_S3_FILE_OVERWRITE = False
+    # AWS_LOCATION = 'public'
+
+
+

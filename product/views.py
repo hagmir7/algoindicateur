@@ -13,17 +13,21 @@ now = timezone.now()
 
 def home(request):
     benefits = Benefit.objects.filter(language__code=request.LANGUAGE_CODE).order_by('-created')[0:10]
-    posts = Post.objects.filter(language__code=request.LANGUAGE_CODE, id__gt=2).order_by('-created')[0:11]
-    products = Product.objects.filter(language__code=request.LANGUAGE_CODE).order_by('-date')[0:4]
-    if request.LANGUAGE_CODE == 'ar':
-        first = Post.objects.get(id=1)
-    else:
-        first = Post.objects.get(id=2)
+
+    products_indicateur = Product.objects.filter(language__code=request.LANGUAGE_CODE, category__name="Algo Indicateur").order_by('-date')
+    products_robot = Product.objects.filter(language__code=request.LANGUAGE_CODE, category__name="Robot Auto trading").order_by('-date')
+
+    post_indicateur = Post.objects.filter(language__code=request.LANGUAGE_CODE, category__name="Algo Indicateur").order_by('-created')
+    post_robo = Post.objects.filter(language__code=request.LANGUAGE_CODE, category__name="Robot Auto trading").order_by('-created')
+
     context = {
         'benefits': benefits,
-        'posts': posts,
-        'products': products,
-        'first': first
+        'products_indicateur': products_indicateur,
+        'products_robot': products_robot,
+
+        'post_indicateur': post_indicateur,
+        'post_robo': post_robo,
+       
     }
     return render(request, 'index.html', context)
 

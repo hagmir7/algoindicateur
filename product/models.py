@@ -2,6 +2,14 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.utils import timezone
 
+
+
+class Category(models.Model):
+    name = models.CharField(max_length=300)
+
+    def __str__(self):
+        return self.name
+
 class Language(models.Model):
     language = models.CharField(("Langue"), max_length=50)
     code = models.CharField(("Code"), max_length=50)
@@ -18,6 +26,7 @@ class Post(models.Model):
     description = models.TextField()
     body = models.TextField()
     language = models.ForeignKey(Language, on_delete=models.CASCADE, null=True, blank=True)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, null=True, blank=True)
     created = models.DateTimeField(auto_now_add=True)
 
 
@@ -37,6 +46,7 @@ class Product(models.Model):
     body = models.TextField()
     date = models.DateTimeField(auto_now=False, auto_now_add=True)
     language = models.ForeignKey(Language, on_delete=models.CASCADE, null=True, blank=True)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, null=True, blank=True)
     slug = models.SlugField()
 
     def __str__(self):
@@ -67,6 +77,7 @@ class Order(models.Model):
     payment = models.CharField(max_length=100)
     confirmed = models.BooleanField(default=False)
     canceled = models.BooleanField(default=False)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, null=True, blank=True)
     created = models.DateTimeField(auto_now_add=True,blank=True, null=True)
 
 
@@ -74,9 +85,10 @@ class Order(models.Model):
 
 class Benefit(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    title = models.CharField(max_length=100)
+    title = models.CharField(max_length=500)
     description = models.TextField()
     created = models.DateTimeField(auto_now_add=True)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, null=True, blank=True)
     language = models.ForeignKey(Language, on_delete=models.CASCADE, null=True, blank=True)
 
 

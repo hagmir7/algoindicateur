@@ -1,0 +1,33 @@
+{% load i18n %}
+{% load static %}
+<div class="container aos-init aos-animate p-3">
+    <h6 class="text-center mb-4">{% trans "Si vous êtes à la recherche d'un des meilleurs brokers de trading reconnus dans le monde entier, ne cherchez pas plus loin que XM" %}</h6>
+    {% if not LANGUAGE_CODE == 'ar' %}
+    <div class="row d-flex justify-content-center">
+        <div class="col-md-6 text-center">
+            <a href="https://clicks.pipaffiliates.com/c?m=84832&c=725552">
+                <img alt="cm" src="{% static 'assets/img/bonus-1.jpeg' %}" width="320" height="100">
+            </a>
+        </div>
+        <div class="col-md-6 text-center">
+            <a href="https://clicks.pipaffiliates.com/c?m=23067&c=725552">
+                <img alt="cm" src="{% static 'assets/img/bonus-2.jpeg' %}" width="320" height="100">
+            </a>
+        </div>
+    </div>
+
+    {% else %}
+    <div class="row row d-flex justify-content-center">
+        <div class="col-md-6 text-center">
+            <a href="https://ads.pipaffiliates.com/i/23075?c=725552">
+                <img alt="cm" src="{% static 'assets/img/bonus-3.jpeg' %}" width="320" height="100">
+            </a>
+        </div>
+        <div class="col-md-6 text-center">
+            <a href="https://clicks.pipaffiliates.com/c?m=22934&c=725552">
+                <img alt="cm" src="{% static 'assets/img/bonus-4.jpeg' %}" width="320" height="100">
+            </a>
+        </div>
+    </div>
+    {% endif %}
+</div>

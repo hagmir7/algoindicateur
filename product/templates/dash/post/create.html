@@ -13,8 +13,10 @@
                     <label for="id_image" class="mt-2"><strong>Image</strong></label>
                     <input class="form-control" type="file" name="image" accept="image/*" id="id_image">
                     <a class="mt-2" href="{{post.image.url}}"> Current Image</a><br>
-                    <label for="old_price" class="form-label mt-2"><strong>Language</strong>:</label>
+                    <label for="language" class="form-label mt-2"><strong>Language</strong>:</label>
                     {{form.language}}
+                    <label for="language" class="form-label mt-2"><strong>Categroy</strong>:</label>
+                    {{form.category}}
                     <textarea class="form-control mt-2" placeholder="Description" name="description" cols="40" rows="5" required="" id="id_description"  spellcheck="false">{{post.description}}</textarea>
                     <label for="body" class="mt-2"><strong>Content</strong></label>
                     {{form.body}}
