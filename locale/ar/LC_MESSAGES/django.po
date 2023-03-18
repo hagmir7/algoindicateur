@@ -149,8 +149,8 @@ msgid "Automatisez vos idées de trading sans intervention humaine"
 msgstr "قم بأتمتة أفكار التداول الخاصة بك دون تدخل بشري."
 
 #: .\product\templates\index.html:68
-msgid "les avantages du trading bot"
-msgstr "فوائد روبوتات التداول"
+msgid "Les avantages du robot auto trading"
+msgstr "مزايا روبوت التداول الآلي"
 
 #: .\product\templates\index.html:97
 msgid "Qu'est-ce que Algo Indicateur?"
@@ -164,17 +164,9 @@ msgstr "ما هو مؤشر Algo؟"
 #| "des décisions éclairées pour des transactions rentables en toute "
 #| "tranquillité. Vous devez savoir qu'avoir un graphique bruyant réduit les "
 #| "chances de succès de vos transactions jusqu'à 60% on fait 70%."
-msgid ""
-"Vous cherchez à maximiser vos chances de succès en trading ? Découvrez "
-"comment notre système simplifié algo indicateur peut vous aider à prendre "
-"des décisions éclairées pour des transactions rentables en toute "
-"tranquillité. Vous devez savoir qu'avoir un graphique bruyant réduit les "
-"chances de succès de vos transactions jusqu'à 60%% on fait 70%%."
-msgstr ""
-"هل تتطلع إلى تعظيم فرصك في نجاح التداول؟ اكتشف كيف يمكن أن يساعدك نظام "
-"مؤشرات algo المبسط لدينا في اتخاذ قرارات مستنيرة بشأن الصفقات المربحة مع "
-"راحة البال. يجب أن تعلم أن وجود مخطط صاخب يقلل من فرص نجاح تداولاتك بنسبة "
-"تصل إلى 60٪ أو 70٪."
+msgid "Algo indicateur est un logiciel qui utilise des règles et des algorithmes prédéfinis pour exécuter automatiquement des transactions sur les marchés financiers. Il est conçu pour analyser les données du marché, telles que les mouvements de prix, le volume et d'autres indicateurs, afin d'identifier les opportunités de trading et d'exécuter des transactions basées sur des règles programmées, ce qui garantit un succès commercial élevé."
+
+msgstr "مؤشر Algo  ، هو برنامج يستخدم قواعد وخوارزميات محددة مسبقًا لتنفيذ التداولات في الأسواق المالية تلقائيًا. تم تصميمه لتحليل بيانات السوق ، مثل تحركات الأسعار والحجم والمؤشرات الأخرى ، لتحديد فرص التداول وتنفيذ التداولات بناءً على قواعد المبرمجة، والذي يضن النجاح في التداول بنسبة عالية."
 
 #: .\product\templates\index.html:117
 msgid "Algo indicateur, que peut faire pour vous ?"

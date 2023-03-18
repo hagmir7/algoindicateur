@@ -43,8 +43,8 @@
                 </div>
                 {% for post  in  post_robo%}
                 <div class="row d-flex justify-content-center">
-                    <div class="col-md-10 row mb-4">
-                        <div class="col-lg-8 d-flex flex-column {% if forloop.counter|divisibleby:2 %} order-md-2 {% endif%}">
+                    <div class="col-md-10 row">
+                        <div class="col-lg-8 d-flex my-4 flex-column {% if forloop.counter|divisibleby:2 %} order-md-2 {% endif%}">
                             <div class="content">
                                 <h3>{{post.title}}</h3>
                                 <p class="lh-lg h6 mt-3" dir="auto">{{post.description}} </p>
@@ -98,7 +98,11 @@
                         class="col-lg-7 order-md-1 order-2 d-flex flex-column justify-content-center align-items-stretch ">
                         <div class="content">
                             <h3><strong>{% trans "Qu'est-ce que Algo Indicateur?" %}</strong></h3>
-                            <p class="lh-lg fw-bolder">{% trans "Vous cherchez à maximiser vos chances de succès en trading ? Découvrez comment notre système simplifié algo indicateur peut vous aider à prendre des décisions éclairées pour des transactions rentables en toute tranquillité. Vous devez savoir qu'avoir un graphique bruyant réduit les chances de succès de vos transactions jusqu'à 70%." %}</p>
+                            {% if LANGUAGE_CODE == 'ar' %}
+                            <p class="lh-lg fw-bolder">مؤشر Algo  ، هو برنامج يستخدم قواعد وخوارزميات محددة مسبقًا لتنفيذ التداولات في الأسواق المالية تلقائيًا. تم تصميمه لتحليل بيانات السوق ، مثل تحركات الأسعار والحجم والمؤشرات الأخرى ، لتحديد فرص التداول وتنفيذ التداولات بناءً على قواعد المبرمجة، والذي يضن النجاح في التداول بنسبة عالية.</p>
+                            {% else %}
+                            <p class="lh-lg fw-bolder">Algo indicateur est un logiciel qui utilise des règles et des algorithmes prédéfinis pour exécuter automatiquement des transactions sur les marchés financiers. Il est conçu pour analyser les données du marché, telles que les mouvements de prix, le volume et d'autres indicateurs, afin d'identifier les opportunités de trading et d'exécuter des transactions basées sur des règles programmées, ce qui garantit un succès commercial élevé.</p>
+                            {% endif %}
                         </div>
                     </div>
                     <!-- 600 x 450 -->
@@ -121,7 +125,7 @@
                 </div>
                 {% for post in post_indicateur %}
                 <div class="row d-flex justify-content-center p-3 rounded {% if forloop.counter|divisibleby:2 %} section-bg {% endif%}">
-                    <div class="col-lg-7 {% if forloop.counter|divisibleby:2 %} order-md-2 {% endif%} d-flex justify-content-center">
+                    <div class="col-lg-7 pb-4 {% if forloop.counter|divisibleby:2 %} order-md-2 {% endif%} d-flex justify-content-center">
                         <div class="content">
                             <h3>{{post.title}}</h3>
                             <p class="lh-lg h6 mt-3">{{post.description}}</p>
