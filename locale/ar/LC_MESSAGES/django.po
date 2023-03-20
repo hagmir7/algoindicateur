@@ -156,17 +156,6 @@ msgstr "مزايا روبوت التداول الآلي"
 msgid "Qu'est-ce que Algo Indicateur?"
 msgstr "ما هو مؤشر Algo؟"
 
-#: .\product\templates\index.html:98
-#, fuzzy, python-format
-#| msgid ""
-#| "Vous cherchez à maximiser vos chances de succès en trading ? Découvrez "
-#| "comment notre système simplifié algo indicateur peut vous aider à prendre "
-#| "des décisions éclairées pour des transactions rentables en toute "
-#| "tranquillité. Vous devez savoir qu'avoir un graphique bruyant réduit les "
-#| "chances de succès de vos transactions jusqu'à 60% on fait 70%."
-msgid "Algo indicateur est un logiciel qui utilise des règles et des algorithmes prédéfinis pour exécuter automatiquement des transactions sur les marchés financiers. Il est conçu pour analyser les données du marché, telles que les mouvements de prix, le volume et d'autres indicateurs, afin d'identifier les opportunités de trading et d'exécuter des transactions basées sur des règles programmées, ce qui garantit un succès commercial élevé."
-
-msgstr "مؤشر Algo  ، هو برنامج يستخدم قواعد وخوارزميات محددة مسبقًا لتنفيذ التداولات في الأسواق المالية تلقائيًا. تم تصميمه لتحليل بيانات السوق ، مثل تحركات الأسعار والحجم والمؤشرات الأخرى ، لتحديد فرص التداول وتنفيذ التداولات بناءً على قواعد المبرمجة، والذي يضن النجاح في التداول بنسبة عالية."
 
 #: .\product\templates\index.html:117
 msgid "Algo indicateur, que peut faire pour vous ?"
@@ -175,6 +164,11 @@ msgstr "مؤشر Algo ، ما الذي يمكن أن يفعله من أجلك؟"
 #: .\product\templates\product.html:88
 msgid "Fermer"
 msgstr "غلق"
+
+msgid "Acheter Maintenant"
+msgstr "شراء الأن"
+
+
 
 #: .\product\templates\products.html:28 .\product\templates\products.html:30
 #: .\templates\base.html:80 .\templates\components\header.html:13

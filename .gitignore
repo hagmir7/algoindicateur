@@ -31,6 +31,7 @@ __pycache__/
 
 # C extensions
 *.so
+*.zip
 
 # Distribution / packaging
 .Python
@@ -48,6 +49,7 @@ var/
 *.egg-info/
 .installed.cfg
 *.egg
+venv
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
