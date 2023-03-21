@@ -249,7 +249,7 @@ msgstr "اللغة"
 #: .\templates\components\header.html:49
 #: .\users\templates\registrations\login.html:9
 #: .\users\templates\registrations\login.html:43
-msgid "Connextion"
+msgid "Connexion"
 msgstr "تسجيل الدخول"
 
 #: .\users\country.py:4
