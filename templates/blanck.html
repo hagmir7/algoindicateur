@@ -31,9 +31,25 @@
   <link href="{% static 'dash/assets/css/style.css' %}" rel="stylesheet">
 </head>
 
+<style>
+  .nav-blank{
+    top: 12px;
+    text-align: center;
+    margin: auto;
+    position: fixed;
+  }
+</style>
+
 <body>
 
   <main>
+    <div style="top: 12px" class="m-auto position-absolute nav-blank w-100">
+      <div class="col-md-6 m-auto">
+        <a class="mx-3" href="/">{% trans "Accueil" %}</a>
+      <a class="mx-3" href="/products">{% trans "Nos produits" %}</a>
+      <a class="mx-3" href="/contact">{% trans "Contactez-nous" %}</a>
+      </div>
+    </div>
     {% block content %}{% endblock content %}
   </main><!-- End #main -->
 
