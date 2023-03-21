@@ -24,7 +24,7 @@
                         <h2 class="text-center">{% trans "Contactez-nous et accédez à des graphiques avancés en temps réel pour tous les marchés, sur tous vos appareils." %}</h2>
                         <div class="justify-content-center d-grid d-sm-grid d-flex d-md-flex d-xl-flex">
                             <a href="/contact" class="btn-get-started scrollto">{% trans "Contactez-nous" %}</a>
-                            <a href="https://www.youtube.com/embed/obk7b23LZDE?controls=0" class="glightbox btn-watch-video">
+                            <a href="https://youtu.be/eArBEq4AnRc" class="glightbox btn-watch-video">
                                 <i class="bi bi-play-circle"></i></span>
                             </a>
                         </div>
@@ -139,21 +139,13 @@
                     </div>
                 </div>
                 {% endfor %}
-
                 {% if posts.count > 10 %}
                 <div class="d-flex justify-content-center mt-4">
                     <a href="/posts" class="buy-btn py-2 px-4 text-center" id="1"><span>{% trans "Voir plus" %}</span></a>
                 </div>
                 {% endif %}
         </section>
-
-      
-
         <!-- Products -->
         {% include 'components/indicateur.html' %}
-
-       
-
     </main>
-
 {% endblock content %}
