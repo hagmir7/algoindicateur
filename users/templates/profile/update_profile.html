@@ -19,21 +19,21 @@
       <!-- Avatar -->
       <div class="m-2">
         <label for="id_avatar">{% trans 'Avatar' %}</label>
-        <input type="file" name="avatar" value="{{form.avatar.value}}" id="id_avatar" class="border form-control">
-        {% if form.avatar.value %}
-        <a href="/media/{{form.avatar.value}}">Current image</a>
+        <input type="file" name="avatar" value="{{page.avatar}}" id="id_avatar" accept="image/*" class="border form-control">
+        {% if page.avatar %}
+        <a href="/media/{{page.avatar}}">Current image</a>
         {% endif %}
       </div>
       <!-- Phone -->
       <div class="m-2">
         <label for="id_phone">{% trans 'Phone' %}</label>
-        <input type="tel" name="phone" value="{{form.phone.value}}" id="id_phone" class="border form-control"
+        <input type="tel" name="phone" value="{{page.phone}}" id="id_phone" class="border form-control"
           placeholder="{% trans 'Phone' %}...">
       </div>
       <!-- Country -->
       <div class="m-2">
         <span> {% trans 'Country' %}</span>
-        <input type="text" name="country" value="{{form.country.value}}" class="border form-control"
+        <input type="text" name="country" value="{{page.country}}" class="border form-control"
           placeholder="{% trans 'Country' %}...">
       </div>
       <div class="m-2">

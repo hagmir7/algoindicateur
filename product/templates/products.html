@@ -42,12 +42,12 @@
                             <h3><del>{{product.old_price}} {% trans "MAD" %}</del></h3>
                             <h4><sup>{% trans "MAD" %}</sup>{{product.price}}</h4>
                         </div>
-                        <div class="row pt-0">
+                        <div class="row justify-content-around p-0 m-0">
                             <h3 class="p-0 mt-2">{{product.name}}</h3>
                             <p class="lh-base h6 fw-4 p-0 m-0" style="white-space: pre-wrap;">{{product.description|safe}}</p>
                           <div class="d-flx row gap-2">
                             {% if user.is_authenticated %}
-                            <a onclick="addToCart(`{{product.id}}`)" href="#!" class="buy-btn py-2 px-4 text-center me-2" id="product-{{product.id}}">
+                            <a onclick="addToCart(`{{product.id}}`)" href="#!" class="buy-btn py-2 px-4 text-center" id="product-{{product.id}}">
                                 {% if user in product.cart.all %}
                                 <i class="bx bx-check"></i>
                                 {% else %}
@@ -55,7 +55,7 @@
                                 {% endif %}
                             </a>
                             {% else %}
-                            <a href="/accounts/login" class="buy-btn py-2 px-4 text-center me-2" id="product-{{product.id}}">
+                            <a href="/accounts/login" class="buy-btn py-2 px-4 text-center" id="product-{{product.id}}">
                                 <span>{% trans "Ajouter au panier" %}</span>
                             </a>
                             {% endif %}

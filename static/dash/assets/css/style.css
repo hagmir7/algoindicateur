@@ -19,6 +19,10 @@ body {
   color: #444444;
 }
 
+.cover{
+  object-fit: cover!important;
+}
+
 a {
   color: #4154f1;
   text-decoration: none;

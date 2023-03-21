@@ -105,21 +105,42 @@ class ProfileView(DetailView):
 
 
 
+
+def ProfileUpdate(request, id):
+    profile = get_object_or_404(Profile, id=id)
+    form = UpdateProfile(instance=profile)
+    if request.method == "POST":
+        if request.user == profile.user:
+            form = UpdateProfile(request.POST, instance=request.user.profile, files=request.FILES)
+            if form.is_valid():
+                form.save()
+                messages.success(request, 'Your profile has been updated!')
+                return redirect('profile_update', id=profile.id)
+        else:
+            return redirect('/')
+        
+
+    context = {
+        'page': profile,
+        'title': _('Update Profile')
+    }
+
+    return render(request, 'profile/update_profile.html', context)
+
+
 class ProfileViewUpdate(UpdateView):
     model = Profile
     template_name = 'profile/update_profile.html'
     form_class = UpdateProfile
-    success_url = reverse_lazy('home')
-    success_message = _('Profile updated successfully!')
 
     def get_context_data(self, *arge, **kwargs):
-        context = super(ProfileViewUpdate, self).get_context_data(
-            *arge, **kwargs)
+        context = super(ProfileViewUpdate, self).get_context_data(*arge, **kwargs)
         page = get_object_or_404(Profile, id=self.kwargs['pk'])
         title = _('Update Profile')
         context["page"] = page
         context["title"] = title
         return context
+    
 
 
  
@@ -142,15 +163,27 @@ def user_update_info(request):
 
 
 
+from django.contrib.auth.forms import PasswordChangeForm
+from django.contrib.auth import update_session_auth_hash
 
 
-class PasswordChange(PasswordChangeView):
-    template_name = 'profile/change-password.html'
-    success_url = reverse_lazy('home')
 
-class PasswordChangeDone(ListView):
-    template_name = 'profile/change-password-done.html'
-    success_url = reverse_lazy('home')
+def change_password(request):
+    if request.method == 'POST':
+        form = PasswordChangeForm(request.user, request.POST)
+        if form.is_valid():
+            user = form.save()
+            update_session_auth_hash(request, user)  # Important!
+            messages.success(request, 'Your password was successfully updated!')
+            return redirect('change_password')
+        else:
+            messages.error(request, 'Please correct the errors below.')
+    else:
+        form = PasswordChangeForm(request.user)
+    return render(request, 'profile/change-password.html', {'form': form})
+
+
+
 
 
 def posword_reset_done(request):

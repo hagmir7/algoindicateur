@@ -34,14 +34,14 @@ def home(request):
 @login_required
 def dashboard(request):
     products = Product.objects.all().order_by('-created')
-    users = Product.objects.all().order_by('?')
+    users = User.objects.all()
     
 
     today_oders = Order.objects.filter(created__date=now.date())
     month_orders = Order.objects.filter(created__year=now.year, created__month=now.month)
 
 
-    orders = Order.objects.filter(canceled=False, confirmed=False)
+    orders = Order.objects.filter(canceled=False, confirmed=False).order_by('-created')
 
 
     context = {
@@ -148,18 +148,21 @@ def AdToCart(request):
 @login_required
 def cart(request):
     products = Product.objects.filter(cart__in=[request.user])
-
     form = OrderForm(request.POST or None)
     if request.method == "POST":
         if form.is_valid():
             order = form.save(commit=False)
             order.user = request.user
-            order.save()
-            for item in products:
-                order.products.add(item)
-                item.cart.remove(request.user)
-            form.save_m2m()
-            return redirect('/thanks')
+            if products.count() > 0:
+                order.save()
+                for item in products:
+                    order.products.add(item)
+                    item.cart.remove(request.user)
+                form.save_m2m()
+                return redirect('/thanks')
+            else :
+                messages.success(request, _("Vous n'avez pas de produit dans le panier"))
+                return redirect('/cart')
 
     context = {
         'products': products,
@@ -349,7 +352,7 @@ def OrderList(request):
 
     page_number = request.GET.get('page')
     orders = paginator.get_page(page_number)
-    context = {'orders': orders}
+    context = {'orders': orders, 'total': list.count()}
     return render(request, 'dash/order/list.html', context)
 
 

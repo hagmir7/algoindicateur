@@ -6,7 +6,7 @@
 
     <div class="d-flex align-items-center justify-content-between">
       <a href="/dash" class="logo d-flex align-items-center">
-        <img src="{% static 'assets/img/favicon.png' %}" alt="">
+        <img src="{% static 'assets/img/favicon.png' %}" alt="Algo indicateur">
         <span class="d-none d-lg-block">Algo Admin</span>
       </a>
       <i class="bi bi-list toggle-sidebar-btn"></i>
@@ -50,7 +50,7 @@
             <li class="message-item">
                 <a href="/contact/{{contact.id}}">
                     {% if contact.user %}
-                    <img src="{{contact.user.profile.avatar.url}}" alt="" class="rounded-circle">
+                    <img src="{{contact.user.profile.avatar.url}}" alt="{{user.username}}" class="rounded-circle cover">
                     {% endif %}
                     <div>
                         <h4>{{contact.full_name}}</h4>
@@ -74,7 +74,9 @@
         <li class="nav-item dropdown pe-3">
 
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-            <img src="{{user.profile.avatar.url}}" alt="{{user}}" class="rounded-circle border">
+            <div class="rounded-circle border overflow-hidden" style="width: 35px; height: 35px;">
+              <img width="100%" height="100%" class="cover" alt="{{user}}" src="{{user.profile.avatar.url}}" alt="agmir">
+            </div>
             <span class="d-none d-md-block dropdown-toggle ps-2">{{user.first_name.0}}. {{user.last_name}}</span>
           </a><!-- End Profile Iamge Icon -->
 
@@ -106,11 +108,10 @@
             <li>
               <hr class="dropdown-divider">
             </li>
-
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="pages-faq.html">
+              <a class="dropdown-item d-flex align-items-center" href="{% url 'change_password' %}">
                 <i class="bi bi-question-circle"></i>
-                <span>Need Help?</span>
+                <span>Change password</span>
               </a>
             </li>
             <li>

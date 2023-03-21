@@ -13,53 +13,46 @@
                     <!-- Table with stripped rows -->
                     <div class="datatable-wrapper datatable-loading no-footer sortable searchable fixed-columns">
                         <div class="datatable-container">
-                            <table class="table datatable datatable-table">
-                                <thead>
-                                    <tr>
-                                        <th data-sortable="true">
-                                            <a href="#" class="datatable-sorter">#</a>
-                                        </th>
-                                        <th data-sortable="true">
-                                            <a href="#" class="datatable-sorter">Title</a>
-                                        </th>
-                                        <th data-sortable="true">
-                                            <a href="#" class="datatable-sorter">Auth</a>
-                                        </th>
-                                        <th data-sortable="true">
-                                            <a href="#" class="datatable-sorter">Date</a>
-                                        </th>
-                                        <th data-sortable="true">
-                                            <a href="#" class="datatable-sorter">Action</a>
-                                        </th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {% for order in orders %}
+                           {% if orders %}
+                           <table class="table datatable datatable-table">
+                            <thead>
+                                <tr>
+                                    <th data-sortable="true">#</th>                                   </th>
+                                    <th data-sortable="true">Title</th>                                   </th>
+                                    <th data-sortable="true">Auth</th>                                   </th>
+                                    <th data-sortable="true">Date</th>                                   </th>
+                                    <th data-sortable="true">Action</th>                                   </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for order in orders %}
 
 
-                                    <tr data-index="0">
-                                        <td>{{order.id}}</td>
-                                        <td>{{order.full_name}}</td>
+                                <tr data-index="0">
+                                    <td>{{order.id}}</td>
+                                    <td>{{order.full_name}}</td>
 
-                                        {% if order.user %}
-                                        <td class="text-success">Yes</td>
-                                        {% else %}
-                                        <td class="text-danger">No</td>
-                                        {% endif %}
+                                    {% if order.user %}
+                                    <td class="text-success">Yes</td>
+                                    {% else %}
+                                    <td class="text-danger">No</td>
+                                    {% endif %}
 
-                                        <td>{{order.created|date:"F j, Y"}}
+                                    <td>{{order.created|date:"F j, Y"}}
 
-                                        <td>
-                                            <a class="btn btn-sm btn-info text-white" href="/order/{{order.id}}">
-                                                View
-                                            </a>
-                                        </td>
-                                        {% empty %}
-                                        <h4 class="text-center"> No order</h4>
-                                        {% endfor %}
+                                    <td>
+                                        <a class="btn btn-sm btn-info text-white" href="/order/{{order.id}}">
+                                            View
+                                        </a>
+                                    </td>
+                                    {% endfor %}
 
-                                </tbody>
-                            </table>
+                            </tbody>
+                        </table>
+                           
+                           {% else %}
+                           <h4 class="text-center"> No order</h4>
+                           {% endif %}
                             <div class="pagination mb-3 d-flex justify-content-center">
                                 <span class="step-links">
                                     {% if orders.has_previous %}

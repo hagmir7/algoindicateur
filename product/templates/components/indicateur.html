@@ -15,10 +15,10 @@
                          <h3><del>{{product.old_price}} {% trans "MAD" %}</del></h3>
                          <h4><sup>{% trans "MAD" %}</sup>{{product.price}}</h4>
                      </div>
-                     <div class="row pt-0">
-                         <h3 class="p-0 mt-2">{{product.name}}</h3>
+                     <div class="row p-0 m-0 justify-content-around">
+                         <h3 class="p-0 mt-2 p-0 m-0">{{product.name}}</h3>
                          <p class="lh-base h6 m-0 p-0 mb-2" style="white-space: pre-wrap;">{{product.description|safe}}</p>
-                         <div class="d-flex p-0 row m-0">
+                         <div class="d-flex p-0 row m-0 justify-content-around">
                             {% if user.is_authenticated %}
                                 <a onclick="addToCart(`{{product.id}}`)" href="#!" class="buy-btn py-2 px-4 col-md-6 mb-2 text-center" id="product-{{product.id}}">
                                     {% if user in product.cart.all %}

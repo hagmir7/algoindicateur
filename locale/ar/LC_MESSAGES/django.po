@@ -252,6 +252,15 @@ msgstr "اللغة"
 msgid "Connexion"
 msgstr "تسجيل الدخول"
 
+msgid "Sélectionner"
+msgstr "تحديد"
+
+msgid "Vous n'avez pas de produit dans le panier"
+msgstr "ليس لديك منتج في السلة"
+
+
+
+
 #: .\users\country.py:4
 msgid "Morocco"
 msgstr ""

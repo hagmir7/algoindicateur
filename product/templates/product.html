@@ -7,9 +7,9 @@
         <div class="container">
             <ol>
                 <li><a href="/">{% trans "Accueil" %}</a></li>
-                <li>{{product.name}}</li>
+                <li> {{product.name}} </li>
             </ol>
-            <h2>{{product.name}}</h2>
+            <h2> {{product.name}} </h2>
         </div>
     </section><!-- End Breadcrumbs -->
 
@@ -52,9 +52,9 @@
 <div class="modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
-        <div class="modal-header">
+        <div class="modal-header" >
           <h1 class="modal-title fs-5" id="exampleModalLabel">{% trans "Entrez vos informations" %}</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          {% comment %} <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> {% endcomment %}
         </div>
         <div class="modal-body">
             <form method="POST">
@@ -75,7 +75,7 @@
                 <div class="form-group">
                     <label for="payment" class="mt-2"><strong>{% trans "Méthode de payement" %}</strong></label>
                     <select class="form-control" id="payment" name="payment" required>
-                        <option value="">Select payement</option>
+                        <option value="">{% trans "Sélectionner" %}</option>
                         <option value="Bank RIP">Bank RIP</option>
                         <option value="Skrill">Skrill</option>
                         <option value="Western Union">Western Union</option>

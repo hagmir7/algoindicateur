@@ -27,14 +27,14 @@
                             <input name="next" type="hidden" value="{{ request.get_full_path|slice:'3:' }}">
                             {% if LANGUAGE_CODE == 'fr' %}
                             <li>
-                                <button name="language" value="ar" class="btn w-100">
+                                <button name="language" value="ar" class="btn w-100 text-end" dir="auto" lang="ar">
                                     <img src="{% static 'assets/img/drapo/morocco.png' %}" width="30px" alt="العربية" />
                                     &#xa0;العربية &#xa0;
                                 </button>
                             </li>
                             {% else %}
                             <li>
-                                <button name="language" class="btn w-100" value="fr">
+                                <button name="language" class="btn w-100 text-start" value="fr" dir="auto">
                                     <img src="{% static 'assets/img/drapo/france.png' %}" width="30px" alt="Français" />
                                     &#xa0; Français &#xa0;
                                 </button>

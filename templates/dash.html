@@ -35,7 +35,7 @@
   #toast {
   display: none;
   position: fixed;
-  bottom: 20px;
+  top: 60px;
   left: 50%;
   transform: translateX(-50%);
   padding: 10px 20px;
@@ -43,6 +43,15 @@
   color: #fff;
   border-radius: 5px;
   z-index: 1;
+}
+
+#toast.show {
+  animation: fadeinout 3s;
+}
+
+@keyframes fadeinout {
+  0%, 100% { opacity: 0; }
+  10%, 90% { opacity: 1; }
 }
 </style>
 
@@ -84,6 +93,7 @@
     function showToast() {
       var toast = document.getElementById("toast");
       toast.style.display = "block";
+      toast.classList.add('show')
       setTimeout(function(){
         toast.style.display = "none";
       }, 3000); // hide after 3 seconds
