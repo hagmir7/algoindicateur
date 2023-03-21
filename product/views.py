@@ -41,11 +41,15 @@ def dashboard(request):
     month_orders = Order.objects.filter(created__year=now.year, created__month=now.month)
 
 
+    orders = Order.objects.filter(canceled=False, confirmed=False)
+
+
     context = {
         'products': products,
         'users': users,
         "today_oders": today_oders,
-        "month_orders": month_orders
+        "month_orders": month_orders,
+        'orders': orders
     }
     return render(request, 'dash/index.html', context)
 
@@ -419,6 +423,18 @@ def order(request, pk):
         return render(request, 'dash/order/order.html', context)
     else:
         return redirect('/')
+    
+
+
+def costumers(request):
+    list = User.objects.all().order_by('date_joined')
+    paginator = Paginator(list, 30) # Show 25 contacts per page.
+    page_number = request.GET.get('page')
+    users = paginator.get_page(page_number)
+    context = {
+        'users': users
+    }
+    return render(request, 'users.html', context)
 
         
 

@@ -119,35 +119,33 @@
                                   </tr>
                               </thead>
                               <tbody>
+                                  {% for order in  orders %}
                                   
                                   <tr data-index="0">
-                                      <td>3</td>
-                                      <td>Hassan Agmir</td>
-                                      
-                                      
-                                      <td class="text-success">Yes</td>
-                                      
-                                      
-                                      <td>mars 16, 2023
-                                      </td><td>
-                                      
-                                          <i class="bx bxs-time-five text-primary"></i>
-                                          
-                                       </td>
-                                      <td>
-                                          <a class="btn btn-sm btn-danger btn-sm" href="/order/cancel?cancel=3" onclick="return confirm('Are you sure you want to cancel Product')">
-                                              Cancel
-                                          </a>
-                                          <a class="btn btn-sm btn-info btn-sm" href="/order/3">
-                                              View
-                                          </a>
-                                          <a class="btn btn-sm btn-success btn-sm" href="/order/confirm?confirm=3">
-                                              Confirm
-                                          </a>
-                                      </td>
-                                  </tr>
-                                  
-                                  
+                                    <td>{{order.id}}</td>
+                                    <td>{{order.full_name}}</td>
+                                    {% if order.user %}
+                                    <td class="text-success">Yes</td>
+                                    {% else %}
+                                    <td class="text-danger">NO</td>
+                                    {% endif %}
+                                    <td>{{order.created}}</td>
+                                    <td>
+                                        <i class="bx bxs-time-five text-primary"></i>
+                                     </td>
+                                    <td>
+                                        <a class="btn btn-sm btn-danger btn-sm" href="/order/cancel?cancel={{order.id}}" onclick="return confirm('Are you sure you want to cancel Product')">
+                                            Cancel
+                                        </a>
+                                        <a class="btn btn-sm btn-info btn-sm" href="/order/{{order.id}}">
+                                            View
+                                        </a>
+                                        <a class="btn btn-sm btn-success btn-sm" href="/order/confirm?confirm={{order.id}}">
+                                            Confirm
+                                        </a>
+                                    </td>
+                                </tr>
+                                  {% endfor %}
                               </tbody>
                           </table>
                           <div class="pagination mb-3 d-flex justify-content-center">

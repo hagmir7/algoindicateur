@@ -42,11 +42,9 @@ msgstr "د.م"
 msgid "Supprimer"
 msgstr "حذف"
 
-#: .\product\templates\cart.html:34
-#, fuzzy
-#| msgid "Nos produits"
+
 msgid "No Produits"
-msgstr "منتجاتنا"
+msgstr "لا يوجد منتجات"
 
 #: .\product\templates\cart.html:40 .\product\templates\product.html:56
 msgid "Entrez vos informations"

@@ -41,5 +41,6 @@ urlpatterns = [
     path("order/cancel", CancelOrder),
     path("order/confirm", ConfirmOrder),
     path("order/new", OrderNew),
-    path('order/<int:pk>', order)
+    path('order/<int:pk>', order),
+    path('costumer/list', costumers)
 ]
