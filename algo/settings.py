@@ -16,7 +16,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['localhost', 'algo.up.railway.app', 'algo.freewsad.com']
 
-CSRF_TRUSTED_ORIGINS = ["https://algo.up.railway.app", "https://algo.freewsad.com/"]
+CSRF_TRUSTED_ORIGINS = ["https://algo.up.railway.app", "https://algo.freewsad.com"]
 
 
 
