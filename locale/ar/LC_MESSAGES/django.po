@@ -255,6 +255,11 @@ msgstr "تسجيل الدخول"
 msgid "Sélectionner"
 msgstr "تحديد"
 
+msgid "Votre commande est en cours de traitement un conseiller vous contactera dans le plus bref détai."
+msgstr "تتم معالجة طلبك ، وسيتصل بك مستشار في أقرب وقت ممكن."
+
+
+
 msgid "Vous n'avez pas de produit dans le panier"
 msgstr "ليس لديك منتج في السلة"
 
