@@ -5,66 +5,31 @@ from .forms import *
 from django.urls import reverse_lazy
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
-
-import smtplib
-from email.message import EmailMessage
 from django.utils.translation import gettext_lazy as _
+from django.contrib.auth.forms import PasswordChangeForm
+from django.contrib.auth import update_session_auth_hash
 
 
 
-# LOGIN
 def login_view(request):
-    next = request.GET.get('next')
-    form = UserLoginForm(request.POST or None)
-    alert = False
-    if request.user.is_authenticated:
-        return redirect('/')
-    else:
-        if form.is_valid():
-            username = form.cleaned_data.get('username')
-            password = form.cleaned_data.get('password')
-            if authenticate(username=username, password=password):
-                user = authenticate(username=username, password=password)
-                login(request, user)
-                if request.user.is_superuser:
-                    return redirect('/dash')
-                else:
-                    return redirect('/products')
-
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            if user.is_superuser:
+                return redirect('/dash')
             else:
-                messages.add_message(request, messages.ERROR, _('Le mot de passe est incorrect !'))
-                return redirect('login')
-        if next:
-            return redirect(next)
-
+                return redirect('home')
+        else:
+            return render(request, 'registrations/login.html', {'error': 'Authentification invalide'})
+    else:
+        return render(request, 'registrations/login.html')
     
-    context = {'form': form,'alert':alert, 'title': _("Log in")}
-    return render(request, "registrations/login.html", context)
-
-# Welcom Message   
-def email_message(obj, body, to):
-    msg = EmailMessage()
-    msg.set_content(body)
-    msg['subject'] = obj
-    msg['to'] = to
-    username = 'hagmir7@gmail.com'
-    msg['from'] = username
-    password = 'jfpgqzkxetgyjbvo'
-
-    server = smtplib.SMTP('smtp.gmail.com', 587)
-    server.starttls()
-    server.login(username, password)
-    server.send_message(msg)
-    server.quit()
-
-
-
-import json
-import urllib.request
 
 # REGISTER 
 def register(request):
-    block_name = False
     if request.user.is_authenticated:
         return redirect('home')
     else:
@@ -73,8 +38,8 @@ def register(request):
             form = UserCreationForm(request.POST)
             if form.is_valid():
                 new_user = form.save(commit=False)
-                username = form.cleaned_data['username']
-                email = new_user.email
+                form.cleaned_data['username']
+                new_user.email
                 new_user.save()
                 if new_user is not None:
                     if new_user.is_active:
@@ -139,13 +104,6 @@ class ProfileViewUpdate(UpdateView):
         return context
     
 
-
- 
-
-
-
-    
-
 def user_update_info(request):
     confirm = False
     if request.method == 'POST':
@@ -157,12 +115,6 @@ def user_update_info(request):
         form = UserUpdateInfo(instance=request.user)
     context = {'form': form, 'confirm':confirm, 'title': _("Contact information")}
     return render(request, 'profile/user_update_info.html', context)
-
-
-
-from django.contrib.auth.forms import PasswordChangeForm
-from django.contrib.auth import update_session_auth_hash
-
 
 
 def change_password(request):

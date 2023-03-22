@@ -8,10 +8,8 @@
         <div class="card col-md-6 p-3 border shadow-sm">
             <h4 class="mb-2" >{% trans 'Connexion' %}</h4>
             <div class="well">
-                {% if messages %}
-                    {% for message in messages %}
-                    <div class="alert alert-danger p-2 mt-3" role="alert">{{message}}</div>
-                    {% endfor %}
+                {% if error %}
+                    <div class="alert alert-danger p-2 mt-3" role="alert">{{error}}</div>
                 {% endif %}
                 <form id="join-form" method="POST">
                     {% csrf_token %}
