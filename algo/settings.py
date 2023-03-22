@@ -14,9 +14,9 @@ SECRET_KEY = 'django-insecure-gko#le@t0c(+v!5e^rw)cpf0-0*tm%iq0v88a+1%mhc95!ithe
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', 'algo.up.railway.app', 'algo.freewsad.com']
+ALLOWED_HOSTS = ['localhost', 'algo.up.railway.app', 'algo.freewsad.com', 'www.algoindicateur.com']
 
-CSRF_TRUSTED_ORIGINS = ["https://algo.up.railway.app", "https://algo.freewsad.com"]
+CSRF_TRUSTED_ORIGINS = ["https://algo.up.railway.app", "https://algo.freewsad.com", 'https:://www.algoindicateur.com']
 
 
 
