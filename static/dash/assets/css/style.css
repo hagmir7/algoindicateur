@@ -22,6 +22,11 @@ body {
 .cover{
   object-fit: cover!important;
 }
+.errorlist{
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
 
 a {
   color: #4154f1;
