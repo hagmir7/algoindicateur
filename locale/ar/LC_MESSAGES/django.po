@@ -311,8 +311,8 @@ msgid "UAE"
 msgstr ""
 
 #: .\users\forms.py:17
-msgid "There is no registered user with this name!"
-msgstr ""
+msgid "Il n'y a pas d'utilisateur enregistré avec ce nom !"
+msgstr "لا يوجد مستخدم مسجل بهذا الاسم!"
 
 #: .\users\forms.py:35 .\users\forms.py:36 .\users\forms.py:37
 #: .\users\forms.py:38 .\users\templates\profile\user_update_info.html:17
@@ -364,16 +364,16 @@ msgid "Confirm Password"
 msgstr "تأكيد كلمة المرور"
 
 #: .\users\forms.py:57 .\users\templates\profile\change-password.html:23
-msgid "Password does not match."
-msgstr ""
+msgid "Le mot de passe ne correspond pas."
+msgstr "كلمة المرور غير متطابقة."
 
 #: .\users\forms.py:63
-msgid "There is a registered user with this name!"
-msgstr ""
+msgid "Il y a un utilisateur enregistré avec ce nom !"
+msgstr "يوجد مستخدم مسجل بهذا الاسم!"
 
 #: .\users\forms.py:71
-msgid "There is a registered user with this email!"
-msgstr ""
+msgid "Il y a un utilisateur enregistré avec cet e-mail !"
+msgstr "هناك مستخدم مسجل بهذا البريد الإلكتروني!"
 
 #: .\users\forms.py:107
 msgid "The two passwords did not match"
@@ -674,8 +674,8 @@ msgid "Forgot Password"
 msgstr ""
 
 #: .\users\views.py:38
-msgid "Password is incorrect!"
-msgstr ""
+msgid "Le mot de passe est incorrect !"
+msgstr "كلمة المرور غير صحيحة!"
 
 #: .\users\views.py:101
 msgid ""

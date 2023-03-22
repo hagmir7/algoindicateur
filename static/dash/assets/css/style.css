@@ -28,6 +28,10 @@ body {
   list-style: none;
 }
 
+.datatable-table{
+  white-space: nowrap;
+}
+
 a {
   color: #4154f1;
   text-decoration: none;

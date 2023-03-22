@@ -3,7 +3,6 @@ from django.contrib.auth.forms import UserChangeForm, PasswordChangeForm
 from django.contrib.auth.models import User
 from .models import Profile
 from django.core.exceptions import ValidationError
-from django.contrib.auth import authenticate
 from django.utils.translation import gettext_lazy as _
 
 class UserLoginForm(forms.Form):
@@ -14,7 +13,7 @@ class UserLoginForm(forms.Form):
     def clean_username(self):
         cd = self.cleaned_data
         if not User.objects.filter(username=cd['username']).exists():
-            raise ValidationError(_('There is no registered user with this name!'))
+            raise ValidationError(_("Il n'y a pas d'utilisateur enregistré avec ce nom !"))
         return cd['username']
 
 
@@ -54,13 +53,13 @@ class UserCreationForm(forms.ModelForm):
     def clean_password2(self):
         cd = self.cleaned_data
         if cd['password1'] != cd['password2']:
-            raise ValidationError(_('Password does not match.'))
+            raise ValidationError(_('Le mot de passe ne correspond pas.'))
         return cd['password2']
 
     def clean_username(self):
         cd = self.cleaned_data
         if User.objects.filter(username=cd['username']).exists():
-            raise ValidationError(_('There is a registered user with this name!'))
+            raise ValidationError(_('Il y a un utilisateur enregistré avec ce nom !'))
         return cd['username']
 
 
@@ -68,7 +67,7 @@ class UserCreationForm(forms.ModelForm):
     def clean_email(self):
         cd = self.cleaned_data
         if User.objects.filter(email=cd['email']).exists():
-            raise ValidationError(_('There is a registered user with this email!'))
+            raise ValidationError(_("Il y a un utilisateur enregistré avec cet e-mail !"))
         return cd['email']    
 
 

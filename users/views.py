@@ -1,14 +1,11 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Profile
-from django.views.generic import ListView, DetailView, UpdateView, UpdateView
-from django.contrib.auth.models import User
+from django.views.generic import DetailView, UpdateView, UpdateView
 from .forms import *
 from django.urls import reverse_lazy
 from django.contrib import messages
-from django.http import HttpResponseRedirect
 from django.contrib.auth import authenticate, login, logout
-from django.contrib.auth.views import PasswordChangeView, PasswordChangeDoneView
-from django.http import JsonResponse
+
 import smtplib
 from email.message import EmailMessage
 from django.utils.translation import gettext_lazy as _
@@ -35,7 +32,7 @@ def login_view(request):
                     return redirect('/products')
 
             else:
-                messages.add_message(request, messages.ERROR, _('Password is incorrect!'))
+                messages.add_message(request, messages.ERROR, _('Le mot de passe est incorrect !'))
                 return redirect('login')
         if next:
             return redirect(next)
