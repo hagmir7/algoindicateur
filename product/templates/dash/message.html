@@ -19,7 +19,13 @@
                     <h6>@{{message.user.username}}</h6>
                     {% endif %}
                 </div>
-                <pre class="h6" style="white-space: pre-wrap;">{{message.message}}</pre>
+                <p>Email <strong>&#xa0;<a href="mailto:{{message.email}}">{{message.email}}</a></strong></p>
+                {% if message.phone %}
+                <p>Phone <strong>&#xa0;&#xa0;<a href="tel:{{message.phone}}">{{message.phone}}</a></strong>
+                    &#xa0;&#xa0;<a target="_blank" href="https://api.whatsapp.com/send?phone={{message.phone}}&text=Bonjour" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Whatsapp message"><i class="bx bxl-whatsapp fs-5"></i></a>
+                </p>
+                {% endif %}
+                <pre dir="auto" class="h6" style="white-space: pre-wrap;font-family: system-ui;overflow: inherit;">{{message.message}}</pre>
                 <hr />
                 <p dir="auto">{{ message.created|timesince }}</p>
                 

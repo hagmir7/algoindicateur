@@ -247,6 +247,11 @@ msgstr ""
 msgid "Méthodes de paiement"
 msgstr "طرق الدفع"
 
+msgid "Téléphone"
+msgstr "الهاتف"
+
+
+
 #: .\templates\base.html:165
 msgid "Êtes-vous sûr de vouloir supprimer le produit"
 msgstr "هل أنت متأكد أنك تريد حذف المنتج"

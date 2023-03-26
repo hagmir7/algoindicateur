@@ -38,6 +38,11 @@
                                             value="{{user.first_name}} {{user.last_name}}" class="form-control"
                                             id="name" required="">
                                     </div>
+
+                                    <div class="form-group col-md-6">
+                                        <label for="name">{% trans "Téléphone" %}</label>
+                                        <input type="tel" name="phone" class="form-control" id="name" required="">
+                                    </div>
                                     <div class="form-group col-md-6">
                                         <label for="email">{% trans "Votre e-mail" %}</label>
                                         <input type="email" class="form-control" value="{{user.email}}" name="email"
