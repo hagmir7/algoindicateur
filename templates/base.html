@@ -10,6 +10,8 @@
     <meta
         content="Le robo de trading, également connu sous le nom de trading algorithmique, est une méthode de trading."
         name="description">
+     <!-- Include the PayPal JavaScript SDK -->
+
     <meta content="" name="keywords">
     <link rel='canonical' href='{{request.path}}' />
     <!-- Favicons -->
@@ -51,6 +53,7 @@
         position: absolute;
         right: 0;
         top: 0;
+        
     }
 </style>
 {% endif %}
@@ -97,13 +100,13 @@
                         </p>
 
                         <p class="d-flex">&#xa0;<i class="bx h5 bxl-instagram"></i>&#xa0; 
-                            <a href="https://www.facebook.com/profile.php?id=100088318391255">
+                            <a href="https://www.instagram.com/algo_indicateur/">
                                 Algo_indicateur
                             </a>
                         </p>
 
                         <p class="d-flex">&#xa0;<i class="bx h5 bxl-facebook-circle"></i>&#xa0; 
-                            <a href="https://www.instagram.com/algo_indicateur/">algo_indicateur</a>
+                            <a href="https://www.facebook.com/profile.php?id=100088318391255">algo_indicateur</a>
                         </p>
                     </div>
 
@@ -149,6 +152,55 @@
     <!-- Template Main JS File -->
     <script src="{% static 'assets/js/main.js' %}"></script>
 
+    <script src="https://www.paypal.com/sdk/js?client-id=AY2QSYPgCWmjjNuN9-o8avqJczPxlk4qR599HCBdqppzkpgSi5K6HYOKXznSinEYuLjdpXPI3yMvQjVu&currency=USD"></script>
+    <script>
+
+    
+          paypal.Buttons({
+    
+            style: {
+              layout:  'vertical',
+              color:   'silver',
+              shape:   'rect',
+              label:   'paypal'
+           },
+    
+            // Sets up the transaction when a payment button is clicked
+            createOrder: function(data, actions) {
+              return actions.order.create({
+                purchase_units: [{
+                  amount: {
+                    value: '0.5' // Can reference variables or functions. Example: `value: document.getElementById('...').value`
+                  }
+                }]
+              });
+            },
+    
+            // Finalize the transaction after payer approval
+            onApprove: function(data, actions) {
+              return actions.order.capture().then(function(orderData) {
+                $.ajax({
+                      type:'POST',
+                      url: '/create-oreder-template/{{templates.pk}}',
+                      data: {
+                        'csrfmiddlewaretoken': csrf.values[0],
+                      },
+                      success: function(respons){
+                        AlertHandler(respons.message)
+                        setTimeout(function(){
+                          window.location.replace('/template-orders')
+                        },5000)
+                      },
+                      error: function(){
+                        AlertHandler("No Internet ❌")
+                      }
+    
+                  })
+              });
+            }
+          }).render('#paypal-button-container');
+    
+        </script>
 
     <script>
 

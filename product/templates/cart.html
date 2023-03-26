@@ -18,7 +18,7 @@
         <div class="container aos-init aos-animate" data-aos="fade-up">
             <div class="row d-flex justify-content-around">
              {% for product in products %}
-             <div id="cart-{{product.id}}" class="col-lg-8 mt-4 mb-3 mt-lg-0 aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">
+             <div id="cart-{{product.id}}" class="col-lg-7 mt-4 mb-3 mt-lg-0 aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">
                 <div class="box shadow-none border featured row">
                   <div class="col-md-3 p-0">
                     <img src="{{product.image.url}}" alt="" class="rounded border" width="100%">
@@ -40,7 +40,7 @@
              {% endfor %}
 
              {% if products %}
-             <div class="col-lg-8 mt-4 mb-3 mt-lg-0 aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">
+             <div class="col-lg-7 mt-4 mb-3 mt-lg-0 aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">
               <div class="box shadow-none border featured row">
                 <h2 class="text-center">{% trans "Entrez vos informations" %}</h2>
                 <form method="POST">
@@ -67,6 +67,7 @@
                           <option value="Western Union">Western Union</option>
                       </select>
                   </div>
+                  <div id="paypal-button-container" class="mt-3 w-100 text-center"></div>
                   <button type="submit" class="btn btn-primary mt-3 rounded-pill w-100">{% trans "Envoyer" %}</button>
               </form>
               </div>
@@ -78,6 +79,7 @@
     </section>
 
 </main>
+
 
 
 {% endblock content %}

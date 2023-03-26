@@ -12,7 +12,9 @@ now = timezone.now()
 
 
 def home(request):
-    benefits = Benefit.objects.filter(language__code=request.LANGUAGE_CODE).order_by('-created')[0:10]
+    algo_benefits = Benefit.objects.filter(language__code=request.LANGUAGE_CODE, category__name='Algo Indicateur').order_by('-created')[0:10]
+    robot_benefits = Benefit.objects.filter(language__code=request.LANGUAGE_CODE, category__name='Robot Auto trading').order_by('-created')[0:10]
+
 
     products_indicateur = Product.objects.filter(language__code=request.LANGUAGE_CODE, category__name="Algo Indicateur").order_by('-created')
     products_robot = Product.objects.filter(language__code=request.LANGUAGE_CODE, category__name="Robot Auto trading").order_by('-created')
@@ -21,7 +23,9 @@ def home(request):
     post_robo = Post.objects.filter(language__code=request.LANGUAGE_CODE, category__name="Robot Auto trading").order_by('-created')
 
     context = {
-        'benefits': benefits,
+        'algo_benefits': algo_benefits,
+        'robot_benefits':  robot_benefits,
+        
         'products_indicateur': products_indicateur,
         'products_robot': products_robot,
 

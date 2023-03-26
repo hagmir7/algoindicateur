@@ -23,6 +23,9 @@ msgstr ""
 msgid "Authentification invalide"
 msgstr "اعتماد تسجيل الدخول غير صالح"
 
+msgid "Les avantages du Algo Indicateur"
+msgstr "مزايا مؤشر Algo"
+
 
 
 #: .\product\templates\cart.html:10 .\product\templates\contact.html:11

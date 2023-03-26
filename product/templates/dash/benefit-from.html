@@ -25,8 +25,14 @@
                     </div>
                     <div class="mb-3">
                         <label for="description" class="form-label"><strong>Description</strong></label>
-                        <textarea class="form-control" id="description" name="description" rows="3"
-                            required>{% if form.description.value %}{{form.description.value}}  {% endif %}</textarea>
+                        <textarea class="form-control" id="description" name="description" rows="3" required>
+                            {% if form.description.value %}{{form.description.value}}  {% endif %}
+                        </textarea>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="category" class="form-label"><strong>Category</strong></label>
+                        {{ form.category }}
                     </div>
                     <button type="Create" class="btn btn-primary w-100 rounded-pill">Create</button>
                 </form>
