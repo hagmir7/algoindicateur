@@ -36,6 +36,16 @@
     <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
 </head>
 
+<script>
+    function submitPay(){
+        const form = document.getElementById('pay-form');
+        if(form){
+            form.submit();
+            window.location.href = '/thanks';
+        }
+    }
+</script>
+
 {% if LANGUAGE_CODE == 'ar' %}
 
 <style>
@@ -201,6 +211,9 @@
             }
 
         }
+
+
+
 
     </script>
 
