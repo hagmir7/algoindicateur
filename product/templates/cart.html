@@ -27,7 +27,9 @@
                   <div class="col-md-8">
                     <h3 class="p-0 pb-1"><a href="/product/{{product.id}}">{{product.name}}</a></h3>
                     <h4 class="fs-4 my-0"><sup class="fs-4">{% trans "MAD" %}</sup>{{product.price}}</h4>
+                    {% if product.code %}
                     <div class="col-md-8">{{ product.code|safe }}</div>
+                    {% endif %}
                     <button onclick="remove('{{product.id}}')" class="btn btn-danger col-12 col-md-8 btn-sm rounded-pill d-flex px-3 text-center"> <span class="fw-bolder text-center w-100">{% trans "Supprimer" %}</span></button>
                   </div>
                 </div>

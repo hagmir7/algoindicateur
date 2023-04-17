@@ -85,9 +85,11 @@
                     </select>
                 </div>
 
+                {% if product.code %}
                 <div class="mt-2">
                     {{ product.code|safe}}
                 </div>
+                {% endif %}
                 
                 <button type="submit" class="btn btn-primary mt-3 rounded-pill w-100">{% trans "Envoyer" %}</button>
             </form>
