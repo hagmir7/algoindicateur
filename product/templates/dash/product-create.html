@@ -44,7 +44,10 @@
                 {{form.category}}
             </div>
 
-
+            <div class="col-md-12">
+                <label for="code">Paypal Code</label>
+                <textarea class="form-control mt-2" placeholder="Paypal Code..." name="code" cols="40" rows="5" required="" id="id_description"  spellcheck="false">{{product.code}}</textarea>
+         </div>
             <div class="col-md-12">
                 <label for="description" class="form-label">Description:</label>
                 <textarea name="description" rows="6" class="form-control" required>{{product.description}}</textarea>

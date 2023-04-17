@@ -81,6 +81,11 @@
                         <option value="Western Union">Western Union</option>
                     </select>
                 </div>
+
+                <div class="mt-2">
+                    {{ product.code|safe}}
+                </div>
+                
                 <button type="submit" class="btn btn-primary mt-3 rounded-pill w-100">{% trans "Envoyer" %}</button>
             </form>
         </div>

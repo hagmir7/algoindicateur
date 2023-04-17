@@ -16,19 +16,22 @@
 
     <section id="pricing" class="pricing section-bg pt-0">
         <div class="container aos-init aos-animate" data-aos="fade-up">
-            <div class="row d-flex justify-content-around">
-             {% for product in products %}
-             <div id="cart-{{product.id}}" class="col-lg-7 mt-4 mb-3 mt-lg-0 aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">
-                <div class="box shadow-none border featured row">
-                  <div class="col-md-3 p-0">
+            <div class="row d-flex justify-content-around px-2">
+             <div class="col-md-6">
+              {% for product in products %}
+             <div id="cart-{{product.id}}" class="col-md-12 mb-3">
+                <div class="row pt-0">
+                  <div class="col-md-4 p-0">
                     <img src="{{product.image.url}}" alt="" class="rounded border" width="100%">
                   </div>
-                  <div class="col-md-9">
-                    <h3 class="p-0 mt-2">{{product.name}}</h3>
-                    <h4><sup>{% trans "MAD" %}</sup>{{product.price}}</h4>
-                    <button onclick="remove('{{product.id}}')" class="btn btn-danger btn-sm d-flex px-3"> <span>{% trans "Supprimer" %}</span></button>
+                  <div class="col-md-8">
+                    <h3 class="p-0 pb-1"><a href="/product/{{product.id}}">{{product.name}}</a></h3>
+                    <h4 class="fs-4 my-0"><sup class="fs-4">{% trans "MAD" %}</sup>{{product.price}}</h4>
+                    <div class="col-md-8">{{ product.code|safe }}</div>
+                    <button onclick="remove('{{product.id}}')" class="btn btn-danger col-12 col-md-8 btn-sm rounded-pill d-flex px-3 text-center"> <span class="fw-bolder text-center w-100">{% trans "Supprimer" %}</span></button>
                   </div>
                 </div>
+                <hr>
               </div>
               {% empty %}
               <div class="text-center">
@@ -37,10 +40,12 @@
                 {% endfor %}
               </div>
               <h3 class="p-0 text-center h1 mt-2">{% trans "No Produits" %}</h3>
-             {% endfor %}
+              {% endfor %}
+             </div>
+            
 
              {% if products %}
-             <div class="col-lg-7 mt-4 mb-3 mt-lg-0 aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">
+             <div class="col-lg-6 mt-4 mb-3 mt-lg-0 aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">
               <div class="box shadow-none border featured row">
                 <h2 class="text-center">{% trans "Entrez vos informations" %}</h2>
                 <form method="POST">
@@ -67,14 +72,13 @@
                           <option value="Western Union">Western Union</option>
                       </select>
                   </div>
-                  <div id="paypal-button-container" class="mt-3 w-100 text-center"></div>
                   <button type="submit" class="btn btn-primary mt-3 rounded-pill w-100">{% trans "Envoyer" %}</button>
               </form>
               </div>
       
             </div>
-          </div>
              {% endif %}
+            </div>
         </div>
     </section>
 

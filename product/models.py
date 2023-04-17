@@ -47,6 +47,7 @@ class Product(models.Model):
     language = models.ForeignKey(Language, on_delete=models.CASCADE, null=True, blank=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE, null=True, blank=True)
     slug = models.SlugField()
+    code = models.TextField(null=True, blank=True)
     created = models.DateTimeField(auto_now=False, auto_now_add=True)
 
     def __str__(self):
@@ -78,6 +79,7 @@ class Order(models.Model):
     payment = models.CharField(max_length=100)
     confirmed = models.BooleanField(default=False)
     canceled = models.BooleanField(default=False)
+    is_payed = models.BooleanField(default=False)
     category = models.ForeignKey(Category, on_delete=models.CASCADE, null=True, blank=True)
     created = models.DateTimeField(auto_now_add=True,blank=True, null=True)
 

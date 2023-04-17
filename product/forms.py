@@ -7,7 +7,7 @@ class ProductForm(forms.ModelForm):
     body = forms.CharField(widget=SummernoteWidget())
     class Meta:
         model = Product
-        fields = ['name', 'image', 'price', 'old_price', 'description', 'body', 'language', 'category']
+        fields = ['name', 'image', 'price', 'old_price', 'description', 'body', 'language', 'category', 'code']
         widgets = {
             'description': forms.Textarea(attrs={'rows': 5}),
             'language': forms.Select(attrs={'class': 'form-select'}),

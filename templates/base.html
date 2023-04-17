@@ -21,6 +21,8 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
         rel="stylesheet">
 
+
+        
     <!-- Vendor CSS Files -->
     <link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet">
     <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
@@ -117,6 +119,9 @@
                             <img class="me-3" width="40px" src="{% static '/assets/img/western-union.png' %}"
                                 alt="western union" />
                             <img class="me-3" width="40px" src="{% static '/assets/img/skrill.png' %}" alt="skrill" />
+                            <img class="me-3 border rounded-pill" width="40px" src="{% static '/assets/img/paypal.png' %}" alt="Paypale" />
+                            <img class="me-3" width="40px" src="{% static '/assets/img/visa.webp' %}" alt="Visa" />
+                            <img class="me-3" width="40px" src="{% static '/assets/img/mastercard.webp' %}" alt="Master Card" />
                         </div>
                     </div>
 
@@ -151,56 +156,6 @@
 
     <!-- Template Main JS File -->
     <script src="{% static 'assets/js/main.js' %}"></script>
-
-    <script src="https://www.paypal.com/sdk/js?client-id=AY2QSYPgCWmjjNuN9-o8avqJczPxlk4qR599HCBdqppzkpgSi5K6HYOKXznSinEYuLjdpXPI3yMvQjVu&currency=USD"></script>
-    <script>
-
-    
-          paypal.Buttons({
-    
-            style: {
-              layout:  'vertical',
-              color:   'silver',
-              shape:   'rect',
-              label:   'paypal'
-           },
-    
-            // Sets up the transaction when a payment button is clicked
-            createOrder: function(data, actions) {
-              return actions.order.create({
-                purchase_units: [{
-                  amount: {
-                    value: '0.5' // Can reference variables or functions. Example: `value: document.getElementById('...').value`
-                  }
-                }]
-              });
-            },
-    
-            // Finalize the transaction after payer approval
-            onApprove: function(data, actions) {
-              return actions.order.capture().then(function(orderData) {
-                $.ajax({
-                      type:'POST',
-                      url: '/create-oreder-template/{{templates.pk}}',
-                      data: {
-                        'csrfmiddlewaretoken': csrf.values[0],
-                      },
-                      success: function(respons){
-                        AlertHandler(respons.message)
-                        setTimeout(function(){
-                          window.location.replace('/template-orders')
-                        },5000)
-                      },
-                      error: function(){
-                        AlertHandler("No Internet ❌")
-                      }
-    
-                  })
-              });
-            }
-          }).render('#paypal-button-container');
-    
-        </script>
 
     <script>
 
