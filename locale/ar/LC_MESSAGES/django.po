@@ -247,8 +247,6 @@ msgstr ""
 msgid "Méthodes de paiement"
 msgstr "طرق الدفع"
 
-msgid "Téléphone"
-msgstr "الهاتف"
 
 
 
@@ -345,8 +343,8 @@ msgstr "يجب ألا يحتوي اسم المستخدم على مسافات"
 msgid "Email"
 msgstr ""
 
-msgid "Si vous êtes à la recherche d'un des meilleurs brokers de trading reconnus dans le monde entier, ne cherchez pas plus loin que XM"
-msgstr "إذا كنت تبحث عن واحد من أفضل وسطاء التداول المعترف بهم في جميع أنحاء العالم ، فابحث عن XM"
+msgid "Si vous êtes à la recherche d'un des meilleurs brokers de trading reconnus dans le monde entier, ne cherchez pas plus loin que Deriv"
+msgstr "إذا كنت تبحث عن واحد من أفضل وسطاء التداول المعترف بهم في جميع أنحاء العالم ، فابحث عن Deriv"
 
 msgid "Bonjour, je veux plus de détails sur le service de robot de trading"
 msgstr "مرحبا أريد تفاصيل أكثر عن خدمة روبوت التداول"
