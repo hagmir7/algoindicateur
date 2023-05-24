@@ -601,6 +601,14 @@ h6 {
 .animated {
   animation: up-down 2s ease-in-out infinite alternate-reverse both;
 }
+.side-ads{
+  display: none!important;
+}
+@media (min-width: 1590px) {
+  .side-ads{
+    display: block!important;
+  }
+}
 
 @media (max-width: 991px) {
   #hero {
