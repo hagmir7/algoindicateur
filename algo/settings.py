@@ -157,7 +157,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 
 # Media file
-MEDIA_URL = '/media/'
+MEDIA_URL = 'http://www.agmir.link/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
@@ -180,24 +180,6 @@ SUMMERNOTE_CONFIG = {
 
 
 if os.getcwd() == '/app':
-
-    DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-    AWS_ACCESS_KEY_ID = 'DO004CNRT4BAPJMAR7QH'
-    AWS_SECRET_ACCESS_KEY = 'ey7KOnDSCbMRLNValKv0mqV8TkID0WssTfHsW9mTRE4'
-    AWS_STORAGE_BUCKET_NAME = 'agmir'
-    AWS_S3_ENDPOINT_URL = 'https://agmir.nyc3.digitaloceanspaces.com'
-
-    AWS_S3_CUSTOM_DOMAIN = 'agmir.nyc3.cdn.digitaloceanspaces.com/agmir'
-    AWS_S3_OBJECT_PARAMETERS = {
-        'CacheControl': 'max-age=86400',
-    }
-    
-    AWS_DEFAULT_ACL = 'public-read'
-    AWS_LOCATION = 'public'
-
-
-
-
     DATABASES = {
         'default': {
             'ENGINE': "django.db.backends.postgresql_psycopg2",
