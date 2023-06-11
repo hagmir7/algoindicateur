@@ -46,7 +46,7 @@ class Product(models.Model):
     body = models.TextField()
     language = models.ForeignKey(Language, on_delete=models.CASCADE, null=True, blank=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE, null=True, blank=True)
-    slug = models.SlugField()
+    slug = models.SlugField(null=True, blank=True)
     code = models.TextField(null=True, blank=True)
     created = models.DateTimeField(auto_now=False, auto_now_add=True)
 

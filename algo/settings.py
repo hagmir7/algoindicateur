@@ -205,16 +205,23 @@ if CPANEL:
         }
     }
 
+# 109.234.165.115
+
 
 if os.getcwd() == '/app':
     MEDIA_URL = 'http://www.agmir.link/media/'
     DATABASES = {
         'default': {
-            'ENGINE': "django.db.backends.postgresql_psycopg2",
-            'NAME': "railway",
-            'USER': "postgres",
-            'PASSWORD': "aAkmpW0rpwP07Fhi93nE",
-            'HOST': "containers-us-west-34.railway.app",
-            'PORT': "6145",
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': 'agha6919_aglo',
+            'USER': 'agha6919_freesad_admin',
+            'PASSWORD': 'Guigou.1998@',
+            'HOST': '109.234.165.115',  # Typically 'localhost' or '127.0.0.1'
+            'PORT': '3306',  # Typically '3306'
+            'OPTIONS': {
+                'sql_mode': 'STRICT_TRANS_TABLES',
+                'charset': 'utf8mb4',
+                'use_unicode': True,
+            },
         }
     }
