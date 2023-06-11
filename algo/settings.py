@@ -33,7 +33,8 @@ INSTALLED_APPS = [
     'product',
     'users',
     'django_summernote',
-    'storages'
+    'storages',
+    'import_export',
 ]
 
 MIDDLEWARE = [

@@ -1,12 +1,38 @@
 from django.contrib import admin
 from .models import *
+from import_export.admin import ImportExportModelAdmin
 
 
 
-admin.site.register(Product)
-admin.site.register(Benefit)
-admin.site.register(Order)
-admin.site.register(Contact)
-admin.site.register(Language)
-admin.site.register(Post)
-admin.site.register(Category)
+@admin.register(Product)
+class ProductIMportExport(ImportExportModelAdmin):
+    pass
+
+
+@admin.register(Benefit)
+class BenefitIMportExport(ImportExportModelAdmin):
+    pass
+
+
+@admin.register(Order)
+class OrderIMportExport(ImportExportModelAdmin):
+    pass
+
+
+@admin.register(Contact)
+class ContactIMportExport(ImportExportModelAdmin):
+    pass
+
+
+@admin.register(Language)
+class LanguageIMportExport(ImportExportModelAdmin):
+    pass
+
+@admin.register(Post)
+class PostIMportExport(ImportExportModelAdmin):
+    pass
+
+
+@admin.register(Category)
+class CategoryIMportExport(ImportExportModelAdmin):
+    pass
