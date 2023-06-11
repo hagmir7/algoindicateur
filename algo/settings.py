@@ -1,6 +1,7 @@
 from pathlib import Path
 import os
 
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -178,16 +179,27 @@ SUMMERNOTE_CONFIG = {
     'height': '400px',
 }  # set the Summernote configuration options
 
+CPANEL = str(os.environ.get('CPANEL')) == '1'
 
 
-if os.getcwd() == '/app':
+if CPANEL:
+    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+    SECURE_SSL_REDIRECT = True
+
+    DEBUG_PROPAGATE_EXCEPTIONS = str(os.environ.get('DEBUG_PROPAGATE_EXCEPTIONS')) == '1'
+
     DATABASES = {
         'default': {
-            'ENGINE': "django.db.backends.postgresql_psycopg2",
-            'NAME': "railway",
-            'USER': "postgres",
-            'PASSWORD': "aAkmpW0rpwP07Fhi93nE",
-            'HOST': "containers-us-west-34.railway.app",
-            'PORT': "6145",
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': 'agha6919_algo',
+            'USER': 'agha6919_freesad_admin',
+            'PASSWORD': 'Guigou.1998@',
+            'HOST': 'localhost',  # Typically 'localhost' or '127.0.0.1'
+            'PORT': '3306',  # Typically '3306'
+            'OPTIONS': {
+                'sql_mode': 'STRICT_TRANS_TABLES',
+                'charset': 'utf8mb4',
+                'use_unicode': True,
+            },
         }
     }
