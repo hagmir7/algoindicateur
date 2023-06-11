@@ -191,7 +191,7 @@ if CPANEL:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.mysql',
-            'NAME': 'agha6919_algo',
+            'NAME': 'agha6919_aglo',
             'USER': 'agha6919_freesad_admin',
             'PASSWORD': 'Guigou.1998@',
             'HOST': 'localhost',  # Typically 'localhost' or '127.0.0.1'
