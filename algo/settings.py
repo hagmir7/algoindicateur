@@ -15,9 +15,11 @@ SECRET_KEY = 'django-insecure-gko#le@t0c(+v!5e^rw)cpf0-0*tm%iq0v88a+1%mhc95!ithe
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', 'algo.up.railway.app', 'algo.freewsad.com', 'www.algoindicateur.com']
+ALLOWED_HOSTS = ['localhost', 'algo.up.railway.app', 'algo.freewsad.com', 'www.algoindicateur.com',
+                 "algo.freesad.com"
+]
 
-CSRF_TRUSTED_ORIGINS = ["https://algo.up.railway.app", "https://algo.freewsad.com", 'https://www.algoindicateur.com']
+CSRF_TRUSTED_ORIGINS = ["https://algo.up.railway.app", "https://algo.freewsad.com", 'https://www.algoindicateur.com', "https://algo.freesad.com"]
 
 
 
@@ -159,7 +161,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 
 # Media file
-MEDIA_URL = 'http://www.agmir.link/media/'
+MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
@@ -185,7 +187,6 @@ CPANEL = str(os.environ.get('CPANEL')) == '1'
 if CPANEL:
     SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
     SECURE_SSL_REDIRECT = True
-
     DEBUG_PROPAGATE_EXCEPTIONS = str(os.environ.get('DEBUG_PROPAGATE_EXCEPTIONS')) == '1'
 
     DATABASES = {
@@ -201,5 +202,19 @@ if CPANEL:
                 'charset': 'utf8mb4',
                 'use_unicode': True,
             },
+        }
+    }
+
+
+if os.getcwd() == '/app':
+    MEDIA_URL = 'http://www.agmir.link/media/'
+    DATABASES = {
+        'default': {
+            'ENGINE': "django.db.backends.postgresql_psycopg2",
+            'NAME': "railway",
+            'USER': "postgres",
+            'PASSWORD': "aAkmpW0rpwP07Fhi93nE",
+            'HOST': "containers-us-west-34.railway.app",
+            'PORT': "6145",
         }
     }
