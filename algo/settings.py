@@ -1,5 +1,7 @@
 from pathlib import Path
 import os
+import dotenv
+dotenv.load_dotenv()
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -10,16 +12,21 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-gko#le@t0c(+v!5e^rw)cpf0-0*tm%iq0v88a+1%mhc95!ithe'
+SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.getenv('DEBUG') == "1"
 
-ALLOWED_HOSTS = ['localhost', 'algo.up.railway.app', 'algo.freewsad.com', 'www.algoindicateur.com',
-                 "algo.freesad.com"
+ALLOWED_HOSTS = [
+    'localhost',
+    'www.algoindicateur.com',
+    'algoindicateur.com',
 ]
 
-CSRF_TRUSTED_ORIGINS = ["https://algo.up.railway.app", "https://algo.freewsad.com", 'https://www.algoindicateur.com', "https://algo.freesad.com"]
+CSRF_TRUSTED_ORIGINS = [
+    'https://www.algoindicateur.com',
+    'https://algoindicateur.com',
+]
 
 
 
@@ -79,14 +86,6 @@ WSGI_APPLICATION = 'algo.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-
 
 DATABASES = {
     'default': {
@@ -181,22 +180,22 @@ SUMMERNOTE_CONFIG = {
     'height': '400px',
 }  # set the Summernote configuration options
 
-CPANEL = str(os.environ.get('CPANEL')) == '1'
+CPANEL = str(os.getenv('CPANEL')) == '1'
 
 
 if CPANEL:
     SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
     SECURE_SSL_REDIRECT = True
-    DEBUG_PROPAGATE_EXCEPTIONS = str(os.environ.get('DEBUG_PROPAGATE_EXCEPTIONS')) == '1'
+    DEBUG_PROPAGATE_EXCEPTIONS = str(os.getenv('DEBUG_PROPAGATE_EXCEPTIONS')) == '1'
 
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.mysql',
-            'NAME': 'agha6919_aglo',
-            'USER': 'agha6919_freesad_admin',
-            'PASSWORD': 'Guigou.1998@',
-            'HOST': 'localhost',  # Typically 'localhost' or '127.0.0.1'
-            'PORT': '3306',  # Typically '3306'
+            'NAME': os.getenv('DB_NAME'),
+            'USER': os.getenv('DB_USER'),
+            'PASSWORD': os.getenv('DB_PASSWROD'),
+            'HOST': os.getenv('DB_HOST'),
+            'PORT': os.getenv('DB_PORT'),
             'OPTIONS': {
                 'sql_mode': 'STRICT_TRANS_TABLES',
                 'charset': 'utf8mb4',
@@ -205,23 +204,3 @@ if CPANEL:
         }
     }
 
-# 109.234.165.115
-
-
-if os.getcwd() == '/app':
-    MEDIA_URL = 'http://www.agmir.link/media/'
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.mysql',
-            'NAME': 'agha6919_aglo',
-            'USER': 'agha6919_freesad_admin',
-            'PASSWORD': 'Guigou.1998@',
-            'HOST': '109.234.165.115',  # Typically 'localhost' or '127.0.0.1'
-            'PORT': '3306',  # Typically '3306'
-            'OPTIONS': {
-                'sql_mode': 'STRICT_TRANS_TABLES',
-                'charset': 'utf8mb4',
-                'use_unicode': True,
-            },
-        }
-    }
